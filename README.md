@@ -100,20 +100,31 @@ The website is a fully responsive single-page application featuring:
 
 1. **Hero Section** - Large, impactful introduction with interactive grid pattern that responds to mouse movement
 2. **Manifest** - Brief explanation of the philosophy with side-by-side layout
-3. **Badge Gallery** - Interactive preview of all badges with download and embed functionality, smooth animations
+3. **Select your badge** - Interactive preview of all badges with download and embed functionality, smooth animations
 4. **How to Use** - Instructions for downloading and embedding badges
 5. **Contributing** - Information on how to contribute to the project
 
 ### Design Features
 
 - **Style**: Minimalist and modern with subtle animations
-- **Color Palette**: Zinc and black tones
+- **Color Palette**: Zinc and black tones with accent color (#F59898) for badge previews
 - **Responsive**: Fully responsive design for all devices (mobile, tablet, desktop)
 - **Interactive Elements**: 
-  - Grid pattern that brightens near mouse cursor
+  - Grid pattern that brightens near mouse cursor (desktop only)
   - Smooth scroll-triggered animations using Framer Motion
   - Hover effects on interactive elements
-- **Layout**: Side-by-side layout for headings and content on desktop for better visual alignment  
+  - Touch device detection for optimal performance
+- **Layout**: Side-by-side layout for headings and content on desktop for better visual alignment
+- **Badge Display**: 2-column grid layout on desktop, 1-column on mobile
+
+### Accessibility & User Experience
+
+- **Keyboard Navigation**: Full keyboard support including ESC to close modals and Tab navigation
+- **Focus Management**: Focus trap in modals for better accessibility
+- **ARIA Labels**: Proper ARIA attributes for screen readers
+- **Error Handling**: Graceful error handling for clipboard operations and downloads
+- **Touch Support**: Optimized experience for touch devices with disabled mouse tracking
+- **Feedback**: Clear visual feedback for user actions (copy, download, etc.)  
 
 ---
 
