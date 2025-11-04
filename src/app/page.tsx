@@ -146,8 +146,8 @@ export default function Home() {
   };
 
   const copyEmbedCode = async (badge: Badge, variant: 'white' | 'black', type: 'markdown' | 'html' | 'img') => {
-    const url = getBadgeUrl(badge, variant);
-    const fullUrl = typeof window !== 'undefined' ? `${window.location.origin}${url}` : url;
+    // Always use GitHub Pages URL for embed codes to ensure compatibility across all platforms
+    const fullUrl = `https://jarllyng.github.io/madebyhuman/badges/${badge.filename}-${variant}.svg`;
     
     let code = '';
     let feedbackType = '';
