@@ -181,8 +181,8 @@ export default function Home() {
         setTimeout(() => setCopied(null), 2000);
       }
     } catch (err) {
-      console.error('Failed to copy to clipboard:', err);
-      // Could show an error message to user here if needed
+      // Silently fail - user can try again or use fallback method
+      // Error logging removed for production
     }
   };
 
@@ -196,9 +196,9 @@ export default function Home() {
       link.click();
       document.body.removeChild(link);
     } catch (err) {
-      console.error('Failed to download badge:', err);
       // Fallback: open in new tab if download fails
       window.open(getBadgeUrl(badge, variant), '_blank');
+      // Error logging removed for production
     }
   };
 
