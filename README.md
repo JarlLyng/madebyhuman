@@ -1,36 +1,112 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Made by Human
 
-## Getting Started
+**Made by Human** is a counterpart to “Not by AI” — an open project celebrating human creativity in an era where AI plays an increasing role.  
+The project is not about rejecting technology, but about emphasizing that everything created with AI is still a human choice.
 
-First, run the development server:
+---
+
+## 🎯 Purpose
+
+The purpose of *Made by Human* is to create a positive movement around the use of AI in creative work.  
+We believe that value arises when humans **choose**, **shape**, and **curate** their tools — even when those tools include AI.
+
+---
+
+## 🧩 The Badge Series
+
+As a symbol of this philosophy, a series of badges is being developed for use on websites, products, music, apps, and art projects.  
+Each badge represents a nuance in the interplay between human and machine.
+
+Example badges:
+- **Made by Human**  
+- **Co-created with AI**  
+- **Human in the Loop**  
+- **Crafted by Human**  
+
+---
+
+## 🖼️ Badges
+
+The project currently includes **six SVG badges** — three in white and three in black — located in the `public/badges` directory.
+
+| Preview | Filename |
+|----------|-----------|
+| ![Co-created with AI (white)](public/badges/co-created-white.svg) | `co-created-white.svg` |
+| ![Crafted by Human (white)](public/badges/crafted-white.svg) | `crafted-white.svg` |
+| ![Human in the Loop (white)](public/badges/loop-white.svg) | `loop-white.svg` |
+| ![Co-created with AI (black)](public/badges/co-created-black.svg) | `co-created-black.svg` |
+| ![Crafted by Human (black)](public/badges/crafted-black.svg) | `crafted-black.svg` |
+| ![Human in the Loop (black)](public/badges/loop-black.svg) | `loop-black.svg` |
+
+## 🧠 Project Structure
+
+This repository is a **Next.js** project that serves as the foundation for:
+- A single-page website that explains the project philosophy
+- An interactive badge viewer where users can browse and preview all available badges
+- Direct download functionality for SVG badges
+- Embed code generation for badges (for use in GitHub README files, websites, or other projects)
+
+### Technology Stack
+
+- **Next.js 16** - React framework with App Router
+- **Tailwind CSS v4** - Utility-first CSS framework (free and open source)
+- **TypeScript** - Type-safe development
+- **React 19** - UI library
+
+### Embedding Badges
+
+Badges can be embedded in multiple ways:
+
+1. **GitHub README**: Use the raw GitHub URL or inline SVG
+2. **Websites**: Use `<img>` tags or inline SVG for better control
+3. **Markdown**: Standard markdown image syntax works with hosted URLs
+
+The website will provide copy-paste embed code for each badge variant.
+
+---
+
+## 🚀 Development
+
+To start the project locally:
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The main page is located in `app/page.tsx` and will auto-update during development.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🧭 Website Structure
 
-To learn more about Next.js, take a look at the following resources:
+The website is a fully responsive single-page application featuring:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Hero Section** - Introduction to the project
+2. **Manifest** - Brief explanation of the philosophy
+3. **Badge Gallery** - Interactive preview of all badges with download and embed functionality
+4. **How to Use** - Instructions for downloading and embedding badges
+5. **Contributing** - Information on how to contribute to the project
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Design
 
-## Deploy on Vercel
+- **Style**: Minimalist and modern
+- **Color Palette**: Zinc and black tones
+- **Responsive**: Fully responsive design for all devices (mobile, tablet, desktop)  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## ❤️ Contributing
+
+Everyone is welcome to contribute — with badges, ideas, text, design, or code.  
+The goal is not to take a stance against AI, but to **recenter the human** in the creative process.
+
+---
+
+## 🌐 License
+
+This project is open source under the MIT License.  
+Share, remix, and build upon it — but remember to credit the humans behind it.
