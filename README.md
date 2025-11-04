@@ -1,3 +1,5 @@
+![Co-created with AI](http://localhost:3001/badges/co-created-white.svg)
+
 # Made by Human
 
 **Made by Human** is a counterpart to “Not by AI” — an open project celebrating human creativity in an era where AI plays an increasing role.  
