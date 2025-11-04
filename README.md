@@ -29,16 +29,26 @@ Example badges:
 
 ## 🖼️ Badges
 
-The project currently includes **six SVG badges** — three in white and three in black — located in the `public/badges` directory.
+The project currently includes **eight SVG badges** — four in white and four in black — located in the `public/badges` directory.
 
 | Preview | Filename |
 |----------|-----------|
+| ![Made by Human (white)](public/badges/made-white.svg) | `made-white.svg` |
 | ![Co-created with AI (white)](public/badges/co-created-white.svg) | `co-created-white.svg` |
 | ![Crafted by Human (white)](public/badges/crafted-white.svg) | `crafted-white.svg` |
 | ![Human in the Loop (white)](public/badges/loop-white.svg) | `loop-white.svg` |
+| ![Made by Human (black)](public/badges/made-black.svg) | `made-black.svg` |
 | ![Co-created with AI (black)](public/badges/co-created-black.svg) | `co-created-black.svg` |
 | ![Crafted by Human (black)](public/badges/crafted-black.svg) | `crafted-black.svg` |
 | ![Human in the Loop (black)](public/badges/loop-black.svg) | `loop-black.svg` |
+
+## 📸 Social Media Images
+
+Open Graph images for social sharing should be placed in the `public/` directory. The recommended size is **1200 × 630 pixels** (works across all major platforms: Facebook, LinkedIn, Twitter/X, Bluesky, Threads).
+
+The image should be named `og-image.png` and will be automatically referenced in the site metadata.
+
+---
 
 ## 🧠 Project Structure
 

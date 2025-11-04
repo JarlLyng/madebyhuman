@@ -11,6 +11,11 @@ interface Badge {
 
 const badges: Badge[] = [
   {
+    name: 'Made by Human',
+    filename: 'made',
+    description: 'A general badge celebrating human creativity in all forms',
+  },
+  {
     name: 'Co-created with AI',
     filename: 'co-created',
     description: 'For projects created in collaboration with AI tools',
@@ -30,21 +35,99 @@ const badges: Badge[] = [
 export default function Home() {
   const [selectedBadge, setSelectedBadge] = useState<Badge | null>(null);
   const [selectedVariant, setSelectedVariant] = useState<'white' | 'black'>('white');
-  const [copied, setCopied] = useState(false);
+  const [copied, setCopied] = useState<string | null>(null);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   // Smooth spring animation for mouse position
   const mouseX = useSpring(useMotionValue(0), { stiffness: 50, damping: 20 });
   const mouseY = useSpring(useMotionValue(0), { stiffness: 50, damping: 20 });
-
-  // Mouse tracking for interactive pattern
+  
+  // Update mouse position state for SVG
   useEffect(() => {
+    if (isTouchDevice) return;
+    
+    const unsubscribeX = mouseX.on('change', (latest) => {
+      setMousePos(prev => ({ ...prev, x: latest }));
+    });
+    const unsubscribeY = mouseY.on('change', (latest) => {
+      setMousePos(prev => ({ ...prev, y: latest }));
+    });
+    
+    return () => {
+      unsubscribeX();
+      unsubscribeY();
+    };
+  }, [mouseX, mouseY, isTouchDevice]);
+
+  // Detect touch device
+  useEffect(() => {
+    setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+  }, []);
+
+  // Mouse tracking for interactive pattern (skip on touch devices)
+  useEffect(() => {
+    if (isTouchDevice) return;
+    
     const handleMouseMove = (e: MouseEvent) => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
     };
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, [mouseX, mouseY]);
+  }, [mouseX, mouseY, isTouchDevice]);
+
+  // Keyboard navigation and focus trap for modal
+  useEffect(() => {
+    if (!selectedBadge) return;
+
+    const modal = document.querySelector('[role="dialog"]');
+    if (!modal) return;
+
+    const focusableElements = modal.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    );
+    const firstElement = focusableElements[0] as HTMLElement;
+    const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;
+
+    // Focus first element when modal opens
+    if (firstElement) {
+      firstElement.focus();
+    }
+
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setSelectedBadge(null);
+      }
+    };
+
+    const handleTab = (e: Event) => {
+      const keyboardEvent = e as KeyboardEvent;
+      if (keyboardEvent.key !== 'Tab') return;
+
+      if (keyboardEvent.shiftKey) {
+        // Shift + Tab
+        if (document.activeElement === firstElement) {
+          keyboardEvent.preventDefault();
+          lastElement?.focus();
+        }
+      } else {
+        // Tab
+        if (document.activeElement === lastElement) {
+          keyboardEvent.preventDefault();
+          firstElement?.focus();
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleEscape);
+    modal.addEventListener('keydown', handleTab);
+    
+    return () => {
+      window.removeEventListener('keydown', handleEscape);
+      modal.removeEventListener('keydown', handleTab);
+    };
+  }, [selectedBadge]);
 
   const getBadgeUrl = (badge: Badge, variant: 'white' | 'black') => {
     // Get basePath from window.location or use default
@@ -62,32 +145,61 @@ export default function Home() {
     return `${basePath}/badges/${badge.filename}-${variant}.svg`;
   };
 
-  const copyEmbedCode = (badge: Badge, variant: 'white' | 'black', type: 'markdown' | 'html' | 'img') => {
+  const copyEmbedCode = async (badge: Badge, variant: 'white' | 'black', type: 'markdown' | 'html' | 'img') => {
     const url = getBadgeUrl(badge, variant);
     const fullUrl = typeof window !== 'undefined' ? `${window.location.origin}${url}` : url;
     
     let code = '';
+    let feedbackType = '';
     if (type === 'markdown') {
       code = `![${badge.name}](${fullUrl})`;
+      feedbackType = 'markdown';
     } else if (type === 'html') {
       code = `<img src="${fullUrl}" alt="${badge.name}" width="360" height="120">`;
+      feedbackType = 'html';
     } else {
       code = fullUrl;
+      feedbackType = 'url';
     }
 
-    navigator.clipboard.writeText(code);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(code);
+        setCopied(feedbackType);
+        setTimeout(() => setCopied(null), 2000);
+      } else {
+        // Fallback for older browsers or non-secure contexts
+        const textArea = document.createElement('textarea');
+        textArea.value = code;
+        textArea.style.position = 'fixed';
+        textArea.style.opacity = '0';
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        setCopied(feedbackType);
+        setTimeout(() => setCopied(null), 2000);
+      }
+    } catch (err) {
+      console.error('Failed to copy to clipboard:', err);
+      // Could show an error message to user here if needed
+    }
   };
 
   const downloadBadge = (badge: Badge, variant: 'white' | 'black') => {
-    const url = getBadgeUrl(badge, variant);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = `${badge.filename}-${variant}.svg`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    try {
+      const url = getBadgeUrl(badge, variant);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `${badge.filename}-${variant}.svg`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (err) {
+      console.error('Failed to download badge:', err);
+      // Fallback: open in new tab if download fails
+      window.open(getBadgeUrl(badge, variant), '_blank');
+    }
   };
 
   return (
@@ -95,10 +207,12 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative px-4 sm:px-6 lg:px-8 py-32 sm:py-40 lg:py-48 min-h-[70vh] flex items-center justify-center">
         {/* Animated Grid Pattern Background */}
+        {!isTouchDevice && (
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <svg 
             className="absolute inset-0 w-full h-full" 
             xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
           >
             <defs>
               <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
@@ -122,17 +236,13 @@ export default function Home() {
                 <feGaussianBlur in="SourceGraphic" stdDeviation="50" />
               </filter>
               <mask id="mouseMask">
-                <motion.rect
+                <rect
                   width="700"
                   height="700"
                   fill="url(#mouseGradient)"
                   filter="url(#blurMask)"
-                  style={{
-                    x: mouseX,
-                    y: mouseY,
-                    translateX: '-50%',
-                    translateY: '-50%',
-                  }}
+                  x={mousePos.x - 350}
+                  y={mousePos.y - 350}
                 />
               </mask>
             </defs>
@@ -163,8 +273,10 @@ export default function Home() {
               x: mouseX,
               y: mouseY,
             }}
+            aria-hidden="true"
           />
         </div>
+        )}
 
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           <motion.h1
@@ -245,7 +357,7 @@ export default function Home() {
             All badges are free to use anywhere — on your website, in your projects, or wherever you want to show your human touch.
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             {badges.map((badge, index) => (
               <motion.div
                 key={badge.filename}
@@ -260,13 +372,13 @@ export default function Home() {
                   setSelectedVariant('white');
                 }}
               >
-                <div className="aspect-[3/1] bg-zinc-100 dark:bg-zinc-900 rounded mb-4 flex items-center justify-center p-4">
+                <div className="rounded mb-4 flex items-center justify-center p-4" style={{ backgroundColor: '#F59898' }}>
                   <img
                     src={getBadgeUrl(badge, 'white')}
                     alt={badge.name}
                     width={360}
                     height={120}
-                    className="w-full h-auto"
+                    className="w-full max-w-[240px] h-auto"
                   />
                 </div>
                 <h3 className="font-semibold text-lg mb-2">{badge.name}</h3>
@@ -277,19 +389,33 @@ export default function Home() {
 
           {/* Badge Detail Modal */}
           {selectedBadge && (
-            <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50" onClick={() => setSelectedBadge(null)}>
+            <div 
+              className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50" 
+              onClick={() => setSelectedBadge(null)}
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="modal-title"
+              aria-describedby="modal-description"
+            >
               <div
                 className="bg-white dark:bg-zinc-900 rounded-lg max-w-2xl w-full p-6 sm:p-8 max-h-[90vh] overflow-y-auto"
                 onClick={(e) => e.stopPropagation()}
+                onKeyDown={(e) => {
+                  if (e.key === 'Escape') {
+                    setSelectedBadge(null);
+                  }
+                }}
               >
                 <div className="flex justify-between items-start mb-6">
                   <div>
-                    <h3 className="text-2xl font-bold mb-2">{selectedBadge.name}</h3>
-                    <p className="text-zinc-600 dark:text-zinc-400">{selectedBadge.description}</p>
+                    <h3 id="modal-title" className="text-2xl font-bold mb-2">{selectedBadge.name}</h3>
+                    <p id="modal-description" className="text-zinc-600 dark:text-zinc-400">{selectedBadge.description}</p>
                   </div>
                   <button
                     onClick={() => setSelectedBadge(null)}
                     className="text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300 text-2xl"
+                    aria-label="Close modal"
+                    tabIndex={0}
                   >
                     ×
                   </button>
@@ -345,20 +471,23 @@ export default function Home() {
                       <button
                         onClick={() => copyEmbedCode(selectedBadge, selectedVariant, 'markdown')}
                         className="w-full text-left px-4 py-2 bg-zinc-50 dark:bg-zinc-800 rounded border border-zinc-200 dark:border-zinc-700 hover:bg-zinc-100 dark:hover:bg-zinc-700 transition-colors text-sm"
+                        aria-label="Copy markdown code"
                       >
-                        {copied ? '✓ Copied!' : 'Copy Markdown Code'}
+                        {copied === 'markdown' ? '✓ Copied!' : 'Copy Markdown Code'}
                       </button>
                       <button
                         onClick={() => copyEmbedCode(selectedBadge, selectedVariant, 'html')}
                         className="w-full text-left px-4 py-2 bg-zinc-50 dark:bg-zinc-800 rounded border border-zinc-200 dark:border-zinc-700 hover:bg-zinc-100 dark:hover:bg-zinc-700 transition-colors text-sm"
+                        aria-label="Copy HTML code"
                       >
-                        {copied ? '✓ Copied!' : 'Copy HTML Code'}
+                        {copied === 'html' ? '✓ Copied!' : 'Copy HTML Code'}
                       </button>
                       <button
                         onClick={() => copyEmbedCode(selectedBadge, selectedVariant, 'img')}
                         className="w-full text-left px-4 py-2 bg-zinc-50 dark:bg-zinc-800 rounded border border-zinc-200 dark:border-zinc-700 hover:bg-zinc-100 dark:hover:bg-zinc-700 transition-colors text-sm"
+                        aria-label="Copy image URL"
                       >
-                        {copied ? '✓ Copied!' : 'Copy Image URL'}
+                        {copied === 'url' ? '✓ Copied!' : 'Copy Image URL'}
                       </button>
                     </div>
                   </div>
@@ -419,6 +548,7 @@ export default function Home() {
             <div>
               <h3 className="text-xl font-semibold mb-3">4. Choose the right badge</h3>
               <ul className="space-y-2 text-zinc-600 dark:text-zinc-400">
+                <li><strong>Made by Human:</strong> A general badge celebrating human creativity in all forms</li>
                 <li><strong>Co-created with AI:</strong> Use when your project involves collaboration with AI tools</li>
                 <li><strong>Crafted by Human:</strong> Use for projects created entirely by human hands</li>
                 <li><strong>Human in the Loop:</strong> Use when humans guide and curate the creative process with AI</li>
