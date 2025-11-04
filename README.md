@@ -1,6 +1,8 @@
+![Co-created with AI](https://raw.githubusercontent.com/JarlLyng/madebyhuman/main/public/badges/co-created-white.svg)
+
 # Made by Human
 
-**Made by Human** is a counterpart to “Not by AI” — an open project celebrating human creativity in an era where AI plays an increasing role.  
+**Made by Human** is a counterpart to "Not by AI" — an open project celebrating human creativity in an era where AI plays an increasing role.  
 The project is not about rejecting technology, but about emphasizing that everything created with AI is still a human choice.
 
 ---
