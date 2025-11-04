@@ -1,4 +1,6 @@
 <svg width="360" height="120" viewBox="0 0 360 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+<title>Human in the Loop</title>
+<desc>A badge for projects where humans guide and curate the creative process with AI</desc>
 <path d="M32 2H358V118H2V32C2 15.4315 15.4315 2 32 2Z" fill="white"/>
 <path d="M32 2H358V118H2V32C2 15.4315 15.4315 2 32 2Z" stroke="black" stroke-width="4"/>
 <path d="M122.528 51V21.9091H128.679V33.9119H141.165V21.9091H147.301V51H141.165V38.983H128.679V51H122.528Z" fill="black"/>
