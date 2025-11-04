@@ -2,22 +2,22 @@
 
 # Made by Human
 
-**Made by Human** is a counterpart to "Not by AI" — an open project celebrating human creativity in an era where AI plays an increasing role.  
-The project is not about rejecting technology, but about emphasizing that everything created with AI is still a human choice.
+**Made by Human** celebrates human creativity — not by rejecting AI, but by honoring the intention, judgment, and personal touch that humans bring to every creative project.
+
+Created with heart, intent, and sometimes AI — but always by a human.
 
 ---
 
 ## 🎯 Purpose
 
-The purpose of *Made by Human* is to create a positive movement around the use of AI in creative work.  
-We believe that value arises when humans **choose**, **shape**, and **curate** their tools — even when those tools include AI.
+*Made by Human* celebrates human creativity and the meaningful choices we make in our creative work.  
+True value emerges when humans **choose**, **shape**, and **curate** their tools. Whether working entirely by hand or in collaboration with AI, the creative vision and decisions remain fundamentally human.
 
 ---
 
 ## 🧩 The Badge Series
 
-As a symbol of this philosophy, a series of badges is being developed for use on websites, products, music, apps, and art projects.  
-Each badge represents a nuance in the interplay between human and machine.
+Our badges represent this philosophy. They're free to use on websites, products, music, apps, and art projects — each one acknowledging a different nuance in how humans and machines work together.
 
 Example badges:
 - **Made by Human**  
@@ -109,8 +109,8 @@ The website is a fully responsive single-page application featuring:
 
 ## ❤️ Contributing
 
-Everyone is welcome to contribute — with badges, ideas, text, design, or code.  
-The goal is not to take a stance against AI, but to **recenter the human** in the creative process.
+Everyone is welcome to contribute — bring your badges, ideas, text, design, or code.  
+Our goal is to **celebrate the human** in every creative process, whether that process includes AI or not.
 
 ---
 

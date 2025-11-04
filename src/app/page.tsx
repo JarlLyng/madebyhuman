@@ -18,12 +18,12 @@ const badges: Badge[] = [
   {
     name: 'Crafted by Human',
     filename: 'crafted',
-    description: 'For projects that are entirely human-made',
+    description: 'For projects created entirely by human hands',
   },
   {
     name: 'Human in the Loop',
     filename: 'loop',
-    description: 'For projects where humans guide and curate AI output',
+    description: 'For projects where humans guide and curate the creative process',
   },
 ];
 
@@ -181,7 +181,7 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
             className="text-xl sm:text-2xl lg:text-3xl text-zinc-600 dark:text-zinc-400 mb-6 max-w-3xl mx-auto font-light"
           >
-            A counterpart to "Not by AI" — celebrating human creativity in an era where AI plays an increasing role.
+            Created with heart, intent, and sometimes AI — but always by a human.
           </motion.p>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -189,7 +189,7 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.4, ease: 'easeOut' }}
             className="text-lg sm:text-xl text-zinc-500 dark:text-zinc-500 max-w-2xl mx-auto"
           >
-            The project is not about rejecting technology, but about emphasizing that everything created with AI is still a human choice.
+            A positive movement celebrating human creativity and the meaningful choices we make in our creative work.
           </motion.p>
         </div>
       </section>
@@ -215,13 +215,13 @@ export default function Home() {
               className="space-y-6 text-lg text-zinc-700 dark:text-zinc-300 pt-2"
             >
               <p>
-                The purpose of <strong>Made by Human</strong> is to create a positive movement around the use of AI in creative work.
+                <strong>Made by Human</strong> celebrates human creativity — not by rejecting AI, but by honoring the intention, judgment, and personal touch that humans bring to every creative project.
               </p>
               <p>
-                We believe that value arises when humans <strong>choose</strong>, <strong>shape</strong>, and <strong>curate</strong> their tools — even when those tools include AI.
+                True value emerges when humans <strong>choose</strong>, <strong>shape</strong>, and <strong>curate</strong> their tools. Whether working entirely by hand or in collaboration with AI, the creative vision and decisions remain fundamentally human.
               </p>
               <p>
-                As a symbol of this philosophy, a series of badges is being developed for use on websites, products, music, apps, and art projects. Each badge represents a nuance in the interplay between human and machine.
+                Our badges represent this philosophy. They're free to use on websites, products, music, apps, and art projects — each one acknowledging a different nuance in how humans and machines work together.
               </p>
             </motion.div>
           </div>
@@ -240,6 +240,10 @@ export default function Home() {
           >
             Select your badge
           </motion.h2>
+          
+          <p className="text-center text-zinc-600 dark:text-zinc-400 mb-8 max-w-2xl mx-auto">
+            All badges are free to use anywhere — on your website, in your projects, or wherever you want to show your human touch.
+          </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {badges.map((badge, index) => (
@@ -332,7 +336,7 @@ export default function Home() {
                     onClick={() => downloadBadge(selectedBadge, selectedVariant)}
                     className="w-full px-6 py-3 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-lg hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors font-medium"
                   >
-                    Download SVG
+                    Download badge
                   </button>
 
                   <div className="border-t border-zinc-200 dark:border-zinc-800 pt-4">
@@ -386,16 +390,16 @@ export default function Home() {
               className="space-y-8 pt-2"
             >
             <div>
-              <h3 className="text-xl font-semibold mb-3">1. Download</h3>
+              <h3 className="text-xl font-semibold mb-3">1. Download a badge</h3>
               <p className="text-zinc-600 dark:text-zinc-400 mb-4">
-                Click on any badge in the gallery to view it in detail. Then click "Download SVG" to save the badge to your computer.
+                Click any badge to view it in detail, then download the SVG file to use wherever you need it.
               </p>
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold mb-3">2. Embed in GitHub README</h3>
+              <h3 className="text-xl font-semibold mb-3">2. Show your badge on GitHub</h3>
               <p className="text-zinc-600 dark:text-zinc-400 mb-4">
-                Use the "Copy Markdown Code" button to get the markdown syntax. Paste it directly into your README.md file.
+                Copy the markdown code and paste it directly into your README.md file to display your badge.
               </p>
               <div className="bg-zinc-900 dark:bg-zinc-800 rounded-lg p-4 text-sm font-mono text-zinc-100">
                 <code>{'![Co-created with AI](https://jarllyng.github.io/madebyhuman/badges/co-created-white.svg)'}</code>
@@ -403,9 +407,9 @@ export default function Home() {
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold mb-3">3. Embed in Website</h3>
+              <h3 className="text-xl font-semibold mb-3">3. Add to your website</h3>
               <p className="text-zinc-600 dark:text-zinc-400 mb-4">
-                Use the "Copy HTML Code" button to get the HTML img tag. Paste it into your HTML file.
+                Copy the HTML code and paste it into your website to display your badge.
               </p>
               <div className="bg-zinc-900 dark:bg-zinc-800 rounded-lg p-4 text-sm font-mono text-zinc-100">
                 <code>{'<img src="https://jarllyng.github.io/madebyhuman/badges/co-created-white.svg" alt="Co-created with AI" width="360" height="120">'}</code>
@@ -413,11 +417,11 @@ export default function Home() {
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold mb-3">4. Choose the Right Badge</h3>
+              <h3 className="text-xl font-semibold mb-3">4. Choose the right badge</h3>
               <ul className="space-y-2 text-zinc-600 dark:text-zinc-400">
-                <li><strong>Co-created with AI:</strong> For projects created in collaboration with AI tools</li>
-                <li><strong>Crafted by Human:</strong> For projects that are entirely human-made</li>
-                <li><strong>Human in the Loop:</strong> For projects where humans guide and curate AI output</li>
+                <li><strong>Co-created with AI:</strong> Use when your project involves collaboration with AI tools</li>
+                <li><strong>Crafted by Human:</strong> Use for projects created entirely by human hands</li>
+                <li><strong>Human in the Loop:</strong> Use when humans guide and curate the creative process with AI</li>
               </ul>
             </div>
           </motion.div>
@@ -446,14 +450,14 @@ export default function Home() {
               className="space-y-6 text-lg text-zinc-700 dark:text-zinc-300 pt-2"
             >
             <p>
-              Everyone is welcome to contribute — with badges, ideas, text, design, or code.
+              Everyone is welcome to contribute — bring your badges, ideas, text, design, or code.
             </p>
             <p>
-              The goal is not to take a stance against AI, but to <strong>recenter the human</strong> in the creative process.
+              Our goal is to <strong>celebrate the human</strong> in every creative process, whether that process includes AI or not.
             </p>
             <p className="pt-4">
               <a
-                href="https://github.com"
+                href="https://github.com/JarlLyng/madebyhuman"
                 className="text-zinc-900 dark:text-zinc-100 underline hover:text-zinc-600 dark:hover:text-zinc-400"
               >
                 Visit our GitHub repository
@@ -489,7 +493,7 @@ export default function Home() {
               This project is open source under the MIT License.
             </p>
             <p>
-              Share, remix, and build upon it — but remember to credit the humans behind it.
+              Share, remix, and build upon it — and remember to credit the humans who made it.
             </p>
             <p className="mt-4">
               Made by{' '}
