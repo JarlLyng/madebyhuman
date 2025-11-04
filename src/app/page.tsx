@@ -398,7 +398,7 @@ export default function Home() {
                 Use the "Copy Markdown Code" button to get the markdown syntax. Paste it directly into your README.md file.
               </p>
               <div className="bg-zinc-900 dark:bg-zinc-800 rounded-lg p-4 text-sm font-mono text-zinc-100">
-                <code>{'![Co-created with AI](https://madebyhuman.com/badges/co-created-white.svg)'}</code>
+                <code>{'![Co-created with AI](https://jarllyng.github.io/madebyhuman/badges/co-created-white.svg)'}</code>
               </div>
             </div>
 
@@ -408,7 +408,7 @@ export default function Home() {
                 Use the "Copy HTML Code" button to get the HTML img tag. Paste it into your HTML file.
               </p>
               <div className="bg-zinc-900 dark:bg-zinc-800 rounded-lg p-4 text-sm font-mono text-zinc-100">
-                <code>{'<img src="https://madebyhuman.com/badges/co-created-white.svg" alt="Co-created with AI" width="360" height="120">'}</code>
+                <code>{'<img src="https://jarllyng.github.io/madebyhuman/badges/co-created-white.svg" alt="Co-created with AI" width="360" height="120">'}</code>
               </div>
             </div>
 
