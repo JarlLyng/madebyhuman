@@ -38,13 +38,13 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/icon.svg', type: 'image/svg+xml' },
-      { url: '/android-chrome-192x192.png', sizes: '192x192', type: 'image/png' },
-      { url: '/android-chrome-512x512.png', sizes: '512x512', type: 'image/png' },
+      { url: `${process.env.NEXT_PUBLIC_BASE_PATH || '/madebyhuman'}/favicon.ico`, sizes: 'any' },
+      { url: `${process.env.NEXT_PUBLIC_BASE_PATH || '/madebyhuman'}/icon.svg`, type: 'image/svg+xml' },
+      { url: `${process.env.NEXT_PUBLIC_BASE_PATH || '/madebyhuman'}/android-chrome-192x192.png`, sizes: '192x192', type: 'image/png' },
+      { url: `${process.env.NEXT_PUBLIC_BASE_PATH || '/madebyhuman'}/android-chrome-512x512.png`, sizes: '512x512', type: 'image/png' },
     ],
     apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+      { url: `${process.env.NEXT_PUBLIC_BASE_PATH || '/madebyhuman'}/apple-touch-icon.png`, sizes: '180x180', type: 'image/png' },
     ],
   },
   openGraph: {
