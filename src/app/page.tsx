@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { useState } from 'react';
 
 interface Badge {
@@ -33,20 +32,24 @@ export default function Home() {
   const [copied, setCopied] = useState(false);
 
   const getBadgeUrl = (badge: Badge, variant: 'white' | 'black') => {
-    return `/badges/${badge.filename}-${variant}.svg`;
+    // Get basePath from window.location or use default
+    let basePath = '';
+    if (typeof window !== 'undefined') {
+      const pathname = window.location.pathname;
+      // Check if we're on GitHub Pages (pathname starts with /madebyhuman)
+      if (pathname.startsWith('/madebyhuman')) {
+        basePath = '/madebyhuman';
+      }
+    } else {
+      // Server-side or build time: use environment variable or default
+      basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+    }
+    return `${basePath}/badges/${badge.filename}-${variant}.svg`;
   };
 
   const copyEmbedCode = (badge: Badge, variant: 'white' | 'black', type: 'markdown' | 'html' | 'img') => {
     const url = getBadgeUrl(badge, variant);
-    let basePath = '';
-    if (typeof window !== 'undefined') {
-      // Detect if we're on GitHub Pages by checking if pathname starts with /madebyhuman
-      const pathname = window.location.pathname;
-      if (pathname.startsWith('/madebyhuman')) {
-        basePath = '/madebyhuman';
-      }
-    }
-    const fullUrl = typeof window !== 'undefined' ? `${window.location.origin}${basePath}${url}` : url;
+    const fullUrl = typeof window !== 'undefined' ? `${window.location.origin}${url}` : url;
     
     let code = '';
     if (type === 'markdown') {
@@ -123,7 +126,7 @@ export default function Home() {
                 }}
               >
                 <div className="aspect-[3/1] bg-zinc-100 dark:bg-zinc-900 rounded mb-4 flex items-center justify-center p-4">
-                  <Image
+                  <img
                     src={getBadgeUrl(badge, 'white')}
                     alt={badge.name}
                     width={360}
@@ -183,7 +186,7 @@ export default function Home() {
 
                 {/* Badge Preview */}
                 <div className="bg-zinc-100 dark:bg-zinc-800 rounded-lg p-8 mb-6 flex items-center justify-center">
-                  <Image
+                  <img
                     src={getBadgeUrl(selectedBadge, selectedVariant)}
                     alt={selectedBadge.name}
                     width={360}
