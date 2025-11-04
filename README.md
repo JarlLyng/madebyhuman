@@ -1,4 +1,4 @@
-![Co-created with AI](https://raw.githubusercontent.com/JarlLyng/madebyhuman/main/public/badges/co-created-white.svg)
+![Co-created with AI](https://jarllyng.github.io/madebyhuman/badges/co-created-white.svg)
 
 # Made by Human
 
