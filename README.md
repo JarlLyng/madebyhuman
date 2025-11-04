@@ -1,5 +1,3 @@
-![Co-created with AI](http://localhost:3001/badges/co-created-white.svg)
-
 # Made by Human
 
 **Made by Human** is a counterpart to “Not by AI” — an open project celebrating human creativity in an era where AI plays an increasing role.  
@@ -54,6 +52,7 @@ This repository is a **Next.js** project that serves as the foundation for:
 - **Tailwind CSS v4** - Utility-first CSS framework (free and open source)
 - **TypeScript** - Type-safe development
 - **React 19** - UI library
+- **Framer Motion** - Animation library for smooth interactions
 
 ### Embedding Badges
 
@@ -87,17 +86,22 @@ The main page is located in `app/page.tsx` and will auto-update during developme
 
 The website is a fully responsive single-page application featuring:
 
-1. **Hero Section** - Introduction to the project
-2. **Manifest** - Brief explanation of the philosophy
-3. **Badge Gallery** - Interactive preview of all badges with download and embed functionality
+1. **Hero Section** - Large, impactful introduction with interactive grid pattern that responds to mouse movement
+2. **Manifest** - Brief explanation of the philosophy with side-by-side layout
+3. **Badge Gallery** - Interactive preview of all badges with download and embed functionality, smooth animations
 4. **How to Use** - Instructions for downloading and embedding badges
 5. **Contributing** - Information on how to contribute to the project
 
-### Design
+### Design Features
 
-- **Style**: Minimalist and modern
+- **Style**: Minimalist and modern with subtle animations
 - **Color Palette**: Zinc and black tones
-- **Responsive**: Fully responsive design for all devices (mobile, tablet, desktop)  
+- **Responsive**: Fully responsive design for all devices (mobile, tablet, desktop)
+- **Interactive Elements**: 
+  - Grid pattern that brightens near mouse cursor
+  - Smooth scroll-triggered animations using Framer Motion
+  - Hover effects on interactive elements
+- **Layout**: Side-by-side layout for headings and content on desktop for better visual alignment  
 
 ---
 
