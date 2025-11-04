@@ -446,7 +446,7 @@ export default function Home() {
                 </div>
 
                 {/* Badge Preview */}
-                <div className="bg-zinc-100 dark:bg-zinc-800 rounded-lg p-8 mb-6 flex items-center justify-center">
+                <div className="rounded-lg p-8 mb-6 flex items-center justify-center" style={{ backgroundColor: '#F59898' }}>
                   <img
                     src={getBadgeUrl(selectedBadge, selectedVariant)}
                     alt={selectedBadge.name}
