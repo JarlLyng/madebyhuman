@@ -38,7 +38,15 @@ export default function Home() {
 
   const copyEmbedCode = (badge: Badge, variant: 'white' | 'black', type: 'markdown' | 'html' | 'img') => {
     const url = getBadgeUrl(badge, variant);
-    const fullUrl = typeof window !== 'undefined' ? `${window.location.origin}${url}` : url;
+    let basePath = '';
+    if (typeof window !== 'undefined') {
+      // Detect if we're on GitHub Pages by checking if pathname starts with /madebyhuman
+      const pathname = window.location.pathname;
+      if (pathname.startsWith('/madebyhuman')) {
+        basePath = '/madebyhuman';
+      }
+    }
+    const fullUrl = typeof window !== 'undefined' ? `${window.location.origin}${basePath}${url}` : url;
     
     let code = '';
     if (type === 'markdown') {
