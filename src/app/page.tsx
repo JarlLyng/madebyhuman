@@ -327,7 +327,7 @@ export default function Home() {
               className="space-y-6 text-lg text-zinc-700 dark:text-zinc-300 pt-2"
             >
               <p>
-                <strong>Made by Human</strong> celebrates human creativity — not by rejecting AI, but by honoring the intention, judgment, and personal touch that humans bring to every creative project.
+                <strong>Made by Human</strong> celebrates human creativity — not by rejecting AI, but by honoring the intention, judgement, and personal touch that humans bring to every creative project.
               </p>
               <p>
                 True value emerges when humans <strong>choose</strong>, <strong>shape</strong>, and <strong>curate</strong> their tools. Whether working entirely by hand or in collaboration with AI, the creative vision and decisions remain fundamentally human.
