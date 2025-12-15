@@ -2,7 +2,7 @@
 
 # Made by Human
 
-**Made by Human** celebrates human creativity — not by rejecting AI, but by honoring the intention, judgment, and personal touch that humans bring to every creative project.
+**Made by Human** celebrates human creativity — not by rejecting AI, but by honoring the intention, judgement, and personal touch that humans bring to every creative project.
 
 Created with heart, intent, and sometimes AI — but always by a human.
 
@@ -31,16 +31,25 @@ Example badges:
 
 The project currently includes **eight SVG badges** — four in white and four in black — located in the `public/badges` directory.
 
-| Preview | Filename |
-|----------|-----------|
-| ![Made by Human (white)](public/badges/made-white.svg) | `made-white.svg` |
-| ![Co-created with AI (white)](public/badges/co-created-white.svg) | `co-created-white.svg` |
-| ![Crafted by Human (white)](public/badges/crafted-white.svg) | `crafted-white.svg` |
-| ![Human in the Loop (white)](public/badges/loop-white.svg) | `loop-white.svg` |
-| ![Made by Human (black)](public/badges/made-black.svg) | `made-black.svg` |
-| ![Co-created with AI (black)](public/badges/co-created-black.svg) | `co-created-black.svg` |
-| ![Crafted by Human (black)](public/badges/crafted-black.svg) | `crafted-black.svg` |
-| ![Human in the Loop (black)](public/badges/loop-black.svg) | `loop-black.svg` |
+### Badge Descriptions
+
+- **Made by Human** - A general badge celebrating human creativity in all forms
+- **Co-created with AI** - For projects created in collaboration with AI tools
+- **Crafted by Human** - For projects created entirely by human hands
+- **Human in the Loop** - For projects where humans guide and curate the creative process
+
+### Badge Files
+
+| Preview | Filename | Description |
+|----------|-----------|-------------|
+| ![Made by Human (white)](public/badges/made-white.svg) | `made-white.svg` | General badge celebrating human creativity |
+| ![Co-created with AI (white)](public/badges/co-created-white.svg) | `co-created-white.svg` | For AI collaboration projects |
+| ![Crafted by Human (white)](public/badges/crafted-white.svg) | `crafted-white.svg` | For entirely human-made projects |
+| ![Human in the Loop (white)](public/badges/loop-white.svg) | `loop-white.svg` | For human-guided creative processes |
+| ![Made by Human (black)](public/badges/made-black.svg) | `made-black.svg` | General badge celebrating human creativity |
+| ![Co-created with AI (black)](public/badges/co-created-black.svg) | `co-created-black.svg` | For AI collaboration projects |
+| ![Crafted by Human (black)](public/badges/crafted-black.svg) | `crafted-black.svg` | For entirely human-made projects |
+| ![Human in the Loop (black)](public/badges/loop-black.svg) | `loop-black.svg` | For human-guided creative processes |
 
 ---
 
@@ -68,7 +77,15 @@ Badges can be embedded in multiple ways:
 2. **Websites**: Use `<img>` tags or inline SVG for better control
 3. **Markdown**: Standard markdown image syntax works with hosted URLs
 
-The website will provide copy-paste embed code for each badge variant.
+The website provides copy-paste embed code for each badge variant (Markdown, HTML, or direct URL).
+
+#### Badge URLs
+
+All badges are hosted at: `https://jarllyng.github.io/madebyhuman/badges/[filename]-[variant].svg`
+
+Examples:
+- `https://jarllyng.github.io/madebyhuman/badges/made-white.svg`
+- `https://jarllyng.github.io/madebyhuman/badges/co-created-black.svg`
 
 ---
 
@@ -84,7 +101,7 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-The main page is located in `app/page.tsx` and will auto-update during development.
+The main page is located in `src/app/page.tsx` and will auto-update during development.
 
 ---
 
@@ -119,6 +136,42 @@ The website is a fully responsive single-page application featuring:
 - **Error Handling**: Graceful error handling for clipboard operations and downloads
 - **Touch Support**: Optimized experience for touch devices with disabled mouse tracking
 - **Feedback**: Clear visual feedback for user actions (copy, download, etc.)  
+
+---
+
+## 🚢 Deployment
+
+The website is automatically deployed to **GitHub Pages** using GitHub Actions. Every push to the `main` branch triggers a build and deployment.
+
+### Live Site
+
+The website is available at: **https://jarllyng.github.io/madebyhuman/**
+
+### Deployment Process
+
+1. Code is pushed to the `main` branch
+2. GitHub Actions workflow builds the Next.js static export
+3. The built site is deployed to GitHub Pages
+4. The site is available at the GitHub Pages URL
+
+### Build Configuration
+
+- **Base Path**: `/madebyhuman` (configured for GitHub Pages subdirectory)
+- **Output**: Static export (`output: 'export'`)
+- **Images**: Unoptimized (required for static export)
+
+---
+
+## 🔍 SEO & Metadata
+
+The website includes comprehensive SEO optimization:
+
+- **Open Graph** tags for social media sharing
+- **Twitter Card** metadata
+- **Structured metadata** for search engines
+- **Canonical URLs** for proper indexing
+- **Favicon** and icon files for all platforms
+- **Accessibility** features (ARIA labels, keyboard navigation)
 
 ---
 
