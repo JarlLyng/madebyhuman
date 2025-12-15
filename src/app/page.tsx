@@ -1,7 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion, useMotionValue, useSpring } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useMotionTemplate } from 'framer-motion';
+import { getBadgeUrl, getFullBadgeUrl } from './config';
 
 interface Badge {
   name: string;
@@ -37,28 +38,10 @@ export default function Home() {
   const [selectedVariant, setSelectedVariant] = useState<'white' | 'black'>('white');
   const [copied, setCopied] = useState<string | null>(null);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   // Smooth spring animation for mouse position
   const mouseX = useSpring(useMotionValue(0), { stiffness: 50, damping: 20 });
   const mouseY = useSpring(useMotionValue(0), { stiffness: 50, damping: 20 });
-  
-  // Update mouse position state for SVG
-  useEffect(() => {
-    if (isTouchDevice) return;
-    
-    const unsubscribeX = mouseX.on('change', (latest) => {
-      setMousePos(prev => ({ ...prev, x: latest }));
-    });
-    const unsubscribeY = mouseY.on('change', (latest) => {
-      setMousePos(prev => ({ ...prev, y: latest }));
-    });
-    
-    return () => {
-      unsubscribeX();
-      unsubscribeY();
-    };
-  }, [mouseX, mouseY, isTouchDevice]);
 
   // Detect touch device
   useEffect(() => {
@@ -129,25 +112,14 @@ export default function Home() {
     };
   }, [selectedBadge]);
 
-  const getBadgeUrl = (badge: Badge, variant: 'white' | 'black') => {
-    // Get basePath from window.location or use default
-    let basePath = '';
-    if (typeof window !== 'undefined') {
-      const pathname = window.location.pathname;
-      // Check if we're on GitHub Pages (pathname starts with /madebyhuman)
-      if (pathname.startsWith('/madebyhuman')) {
-        basePath = '/madebyhuman';
-      }
-    } else {
-      // Server-side or build time: use environment variable or default
-      basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
-    }
-    return `${basePath}/badges/${badge.filename}-${variant}.svg`;
+  // Use centralized config helper for badge URLs
+  const getBadgeUrlForBadge = (badge: Badge, variant: 'white' | 'black') => {
+    return getBadgeUrl(badge.filename, variant);
   };
 
   const copyEmbedCode = async (badge: Badge, variant: 'white' | 'black', type: 'markdown' | 'html' | 'img') => {
-    // Always use GitHub Pages URL for embed codes to ensure compatibility across all platforms
-    const fullUrl = `https://jarllyng.github.io/madebyhuman/badges/${badge.filename}-${variant}.svg`;
+    // Use centralized config helper for full badge URLs (with origin)
+    const fullUrl = getFullBadgeUrl(badge.filename, variant);
     
     let code = '';
     let feedbackType = '';
@@ -188,7 +160,7 @@ export default function Home() {
 
   const downloadBadge = (badge: Badge, variant: 'white' | 'black') => {
     try {
-      const url = getBadgeUrl(badge, variant);
+      const url = getBadgeUrlForBadge(badge, variant);
       const link = document.createElement('a');
       link.href = url;
       link.download = `${badge.filename}-${variant}.svg`;
@@ -197,7 +169,7 @@ export default function Home() {
       document.body.removeChild(link);
     } catch (err) {
       // Fallback: open in new tab if download fails
-      window.open(getBadgeUrl(badge, variant), '_blank');
+      window.open(getBadgeUrlForBadge(badge, variant), '_blank');
       // Error logging removed for production
     }
   };
@@ -236,13 +208,15 @@ export default function Home() {
                 <feGaussianBlur in="SourceGraphic" stdDeviation="50" />
               </filter>
               <mask id="mouseMask">
-                <rect
+                <motion.rect
                   width="700"
                   height="700"
                   fill="url(#mouseGradient)"
                   filter="url(#blurMask)"
-                  x={mousePos.x - 350}
-                  y={mousePos.y - 350}
+                  style={{
+                    x: useMotionTemplate`calc(${mouseX}px - 350px)`,
+                    y: useMotionTemplate`calc(${mouseY}px - 350px)`,
+                  }}
                 />
               </mask>
             </defs>
@@ -374,7 +348,7 @@ export default function Home() {
               >
                 <div className="rounded mb-4 flex items-center justify-center p-4" style={{ backgroundColor: '#F59898' }}>
                   <img
-                    src={getBadgeUrl(badge, 'white')}
+                    src={getBadgeUrlForBadge(badge, 'white')}
                     alt={badge.name}
                     width={360}
                     height={120}
@@ -448,7 +422,7 @@ export default function Home() {
                 {/* Badge Preview */}
                 <div className="rounded-lg p-8 mb-6 flex items-center justify-center" style={{ backgroundColor: '#F59898' }}>
                   <img
-                    src={getBadgeUrl(selectedBadge, selectedVariant)}
+                    src={getBadgeUrlForBadge(selectedBadge, selectedVariant)}
                     alt={selectedBadge.name}
                     width={360}
                     height={120}
@@ -604,14 +578,14 @@ export default function Home() {
         <div className="max-w-6xl mx-auto text-center space-y-6">
           <div className="flex justify-center">
             <img
-              src={getBadgeUrl(badges[0], 'white')}
+              src={getBadgeUrlForBadge(badges[0], 'white')}
               alt="Co-created with AI"
               width={360}
               height={120}
               className="h-16 w-auto dark:hidden"
             />
             <img
-              src={getBadgeUrl(badges[0], 'black')}
+              src={getBadgeUrlForBadge(badges[0], 'black')}
               alt="Co-created with AI"
               width={360}
               height={120}

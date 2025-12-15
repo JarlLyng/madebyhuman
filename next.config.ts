@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
-// Use environment variable for basePath, default to empty for local dev
-const basePath = process.env.BASE_PATH || (process.env.NODE_ENV === 'production' ? '/madebyhuman' : '');
+// Use NEXT_PUBLIC_BASE_PATH for consistency with client-side code
+// Default to empty for local dev, /madebyhuman for production builds
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || (process.env.NODE_ENV === 'production' ? '/madebyhuman' : '');
 
 const nextConfig: NextConfig = {
   output: 'export',
