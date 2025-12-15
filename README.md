@@ -149,7 +149,7 @@ The website is available at: **https://jarllyng.github.io/madebyhuman/**
 
 ### Deployment Process
 
-1. Code is pushed to the `main` branch
+1. Code is pushed to the `main` branch (via pull request)
 2. GitHub Actions workflow builds the Next.js static export
 3. The built site is deployed to GitHub Pages
 4. The site is available at the GitHub Pages URL
@@ -159,6 +159,14 @@ The website is available at: **https://jarllyng.github.io/madebyhuman/**
 - **Base Path**: `/madebyhuman` (configured for GitHub Pages subdirectory)
 - **Output**: Static export (`output: 'export'`)
 - **Images**: Unoptimized (required for static export)
+
+### Branch Protection
+
+The `main` branch is protected with the following rules:
+- **Pull requests required**: All changes must be made through pull requests
+- **Status checks required**: Build must pass before merging
+- **Force push blocked**: Prevents accidental history rewriting
+- **Branch deletion blocked**: Protects the main branch from accidental deletion
 
 ---
 
@@ -179,6 +187,16 @@ The website includes comprehensive SEO optimization:
 
 Everyone is welcome to contribute — bring your badges, ideas, text, design, or code.  
 Our goal is to **celebrate the human** in every creative process, whether that process includes AI or not.
+
+### How to Contribute
+
+1. **Fork the repository** and create a new branch for your changes
+2. **Make your changes** and test them locally
+3. **Create a pull request** to the `main` branch
+4. **Wait for status checks** to pass (build must succeed)
+5. **Your PR will be reviewed** and merged once approved
+
+All contributions must go through pull requests — direct pushes to `main` are not allowed to ensure code quality and maintain project stability.
 
 ---
 
