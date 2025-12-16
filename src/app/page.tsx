@@ -4,6 +4,14 @@ import { useState, useEffect } from 'react';
 import { motion, useMotionValue, useSpring, useMotionTemplate } from 'framer-motion';
 import { getBadgeUrl, getFullBadgeUrl } from './config';
 
+declare global {
+  interface Window {
+    umami?: {
+      track: (eventName: string, data?: Record<string, any>) => void;
+    };
+  }
+}
+
 interface Badge {
   name: string;
   filename: string;
@@ -38,6 +46,15 @@ export default function Home() {
   const [selectedVariant, setSelectedVariant] = useState<'white' | 'black'>('white');
   const [copied, setCopied] = useState<string | null>(null);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+  const trackEvent = (eventName: string, data?: Record<string, any>) => {
+    if (typeof window === 'undefined') return;
+    try {
+      window.umami?.track(eventName, data);
+    } catch {
+      // Ignore tracking errors to avoid breaking UX
+    }
+  };
 
   // Smooth spring animation for mouse position
   const mouseX = useSpring(useMotionValue(0), { stiffness: 50, damping: 20 });
@@ -139,6 +156,7 @@ export default function Home() {
         await navigator.clipboard.writeText(code);
         setCopied(feedbackType);
         setTimeout(() => setCopied(null), 2000);
+        trackEvent('copy_embed', { badge: badge.filename, variant, type });
       } else {
         // Fallback for older browsers or non-secure contexts
         const textArea = document.createElement('textarea');
@@ -151,6 +169,7 @@ export default function Home() {
         document.body.removeChild(textArea);
         setCopied(feedbackType);
         setTimeout(() => setCopied(null), 2000);
+        trackEvent('copy_embed', { badge: badge.filename, variant, type });
       }
     } catch (err) {
       // Silently fail - user can try again or use fallback method
@@ -167,6 +186,7 @@ export default function Home() {
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
+      trackEvent('download_badge', { badge: badge.filename, variant });
     } catch (err) {
       // Fallback: open in new tab if download fails
       window.open(getBadgeUrlForBadge(badge, variant), '_blank');
@@ -344,6 +364,7 @@ export default function Home() {
                 onClick={() => {
                   setSelectedBadge(badge);
                   setSelectedVariant('white');
+                  trackEvent('badge_modal_open', { badge: badge.filename });
                 }}
               >
                 <div className="rounded mb-4 flex items-center justify-center p-4" style={{ backgroundColor: '#F59898' }}>
@@ -563,6 +584,7 @@ export default function Home() {
               <a
                 href="https://github.com/JarlLyng/madebyhuman"
                 className="text-zinc-900 dark:text-zinc-100 underline hover:text-zinc-600 dark:hover:text-zinc-400"
+                onClick={() => trackEvent('cta_github_repo_click')}
               >
                 Visit our GitHub repository
               </a>{' '}

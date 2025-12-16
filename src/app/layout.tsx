@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Script from "next/script";
 import { getBasePath, getSiteOrigin, getBaseUrl } from "./config";
 
 const geistSans = Geist({
@@ -86,6 +87,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Script
+          src="https://umami-iamjarl.vercel.app/script.js"
+          data-website-id="a8ee647d-8843-48d5-8cbc-33224e12ad61"
+          strategy="afterInteractive"
+        />
         {children}
       </body>
     </html>
