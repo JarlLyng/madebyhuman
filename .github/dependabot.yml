@@ -18,4 +18,21 @@ updates:
         dependency-type: "production"
       development-dependencies:
         dependency-type: "development"
+    # Ignore major version updates for @types/node to avoid breaking changes
+    ignore:
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
+
+  # Enable version updates for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "dependencies"
+      - "automated"
+      - "github-actions"
+    commit-message:
+      prefix: "ci"
+      include: "scope"
 
