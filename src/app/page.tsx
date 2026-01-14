@@ -526,7 +526,7 @@ export default function Home() {
                 Copy the markdown code and paste it directly into your README.md file to display your badge.
               </p>
               <div className="bg-zinc-900 dark:bg-zinc-800 rounded-lg p-4 text-sm font-mono text-zinc-100">
-                <code>{'![Co-created with AI](https://jarllyng.github.io/madebyhuman/badges/co-created-white.svg)'}</code>
+                <code>{`![Co-created with AI](${getFullBadgeUrl('co-created', 'white')})`}</code>
               </div>
             </div>
 
@@ -536,7 +536,7 @@ export default function Home() {
                 Copy the HTML code and paste it into your website to display your badge.
               </p>
               <div className="bg-zinc-900 dark:bg-zinc-800 rounded-lg p-4 text-sm font-mono text-zinc-100">
-                <code>{'<img src="https://jarllyng.github.io/madebyhuman/badges/co-created-white.svg" alt="Co-created with AI" width="360" height="120">'}</code>
+                <code>{`<img src="${getFullBadgeUrl('co-created', 'white')}" alt="Co-created with AI" width="360" height="120">`}</code>
               </div>
             </div>
 

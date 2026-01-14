@@ -1,4 +1,4 @@
-![Co-created with AI](https://jarllyng.github.io/madebyhuman/badges/co-created-white.svg)
+![Co-created with AI](https://madebyhuman.iamjarl.com/badges/co-created-white.svg)
 
 # Made by Human
 
@@ -81,11 +81,11 @@ The website provides copy-paste embed code for each badge variant (Markdown, HTM
 
 #### Badge URLs
 
-All badges are hosted at: `https://jarllyng.github.io/madebyhuman/badges/[filename]-[variant].svg`
+All badges are hosted at: `https://madebyhuman.iamjarl.com/badges/[filename]-[variant].svg`
 
 Examples:
-- `https://jarllyng.github.io/madebyhuman/badges/made-white.svg`
-- `https://jarllyng.github.io/madebyhuman/badges/co-created-black.svg`
+- `https://madebyhuman.iamjarl.com/badges/made-white.svg`
+- `https://madebyhuman.iamjarl.com/badges/co-created-black.svg`
 
 ---
 
@@ -145,7 +145,7 @@ The website is automatically deployed to **GitHub Pages** using GitHub Actions. 
 
 ### Live Site
 
-The website is available at: **https://jarllyng.github.io/madebyhuman/**
+The website is available at: **https://madebyhuman.iamjarl.com/**
 
 ### Deployment Process
 
@@ -156,7 +156,7 @@ The website is available at: **https://jarllyng.github.io/madebyhuman/**
 
 ### Build Configuration
 
-- **Base Path**: `/madebyhuman` (configured for GitHub Pages subdirectory)
+- **Custom Domain**: `madebyhuman.iamjarl.com`
 - **Output**: Static export (`output: 'export'`)
 - **Images**: Unoptimized (required for static export)
 

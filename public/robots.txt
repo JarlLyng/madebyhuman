@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jarllyng.github.io/madebyhuman/sitemap.xml
+Sitemap: https://madebyhuman.iamjarl.com/sitemap.xml
 

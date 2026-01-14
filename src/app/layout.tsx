@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
-import { getBasePath, getSiteOrigin, getBaseUrl } from "./config";
+import { getSiteOrigin, getBaseUrl } from "./config";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,7 +15,6 @@ const geistMono = Geist_Mono({
 });
 
 // Get configuration values for metadata (server-side)
-const basePath = getBasePath();
 const siteOrigin = getSiteOrigin();
 const baseUrl = getBaseUrl();
 
@@ -43,13 +42,13 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: `${basePath}/favicon.ico`, sizes: 'any' },
-      { url: `${basePath}/icon.svg`, type: 'image/svg+xml' },
-      { url: `${basePath}/android-chrome-192x192.png`, sizes: '192x192', type: 'image/png' },
-      { url: `${basePath}/android-chrome-512x512.png`, sizes: '512x512', type: 'image/png' },
+      { url: `/favicon.ico`, sizes: 'any' },
+      { url: `/icon.svg`, type: 'image/svg+xml' },
+      { url: `/android-chrome-192x192.png`, sizes: '192x192', type: 'image/png' },
+      { url: `/android-chrome-512x512.png`, sizes: '512x512', type: 'image/png' },
     ],
     apple: [
-      { url: `${basePath}/apple-touch-icon.png`, sizes: '180x180', type: 'image/png' },
+      { url: `/apple-touch-icon.png`, sizes: '180x180', type: 'image/png' },
     ],
   },
   openGraph: {
@@ -61,7 +60,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: `${basePath}/og-image.png`,
+        url: `/og-image.png`,
         width: 1200,
         height: 630,
         alt: "Made by Human - A positive movement celebrating human creativity",
@@ -72,7 +71,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Made by Human",
     description: "Created with heart, intent, and sometimes AI — but always by a human. A positive movement celebrating human creativity and the meaningful choices we make in our creative work.",
-    images: [`${basePath}/og-image.png`],
+    images: [`/og-image.png`],
     creator: "@iamjarl",
   },
 };
