@@ -43,8 +43,7 @@ jobs:
         run: npm run build
         env:
           NODE_ENV: production
-          BASE_PATH: /madebyhuman
-          NEXT_PUBLIC_BASE_PATH: /madebyhuman
+          NEXT_PUBLIC_SITE_ORIGIN: https://madebyhuman.iamjarl.com
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
