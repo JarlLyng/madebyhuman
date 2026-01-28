@@ -18,6 +18,8 @@ updates:
         dependency-type: "production"
       development-dependencies:
         dependency-type: "development"
+    # Versioning strategy: increase for patch/minor, create separate PRs for major
+    versioning-strategy: increase
     # Ignore major version updates for @types/node to avoid breaking changes
     ignore:
       - dependency-name: "@types/node"
@@ -35,4 +37,5 @@ updates:
     commit-message:
       prefix: "ci"
       include: "scope"
+    versioning-strategy: increase
 
