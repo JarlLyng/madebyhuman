@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
-import { getSiteOrigin, getBaseUrl } from "./config";
+import { getBaseUrl } from "./config";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,7 +15,6 @@ const geistMono = Geist_Mono({
 });
 
 // Get configuration values for metadata (server-side)
-const siteOrigin = getSiteOrigin();
 const baseUrl = getBaseUrl();
 
 export const metadata: Metadata = {
