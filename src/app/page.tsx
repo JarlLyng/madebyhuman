@@ -7,7 +7,7 @@ import { getBadgeUrl, getFullBadgeUrl } from './config';
 declare global {
   interface Window {
     umami?: {
-      track: (eventName: string, data?: Record<string, any>) => void;
+      track: (eventName: string, data?: Record<string, unknown>) => void;
     };
   }
 }
@@ -47,7 +47,7 @@ export default function Home() {
   const [copied, setCopied] = useState<string | null>(null);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
 
-  const trackEvent = (eventName: string, data?: Record<string, any>) => {
+  const trackEvent = (eventName: string, data?: Record<string, unknown>) => {
     if (typeof window === 'undefined') return;
     try {
       window.umami?.track(eventName, data);
@@ -327,7 +327,7 @@ export default function Home() {
                 True value emerges when humans <strong>choose</strong>, <strong>shape</strong>, and <strong>curate</strong> their tools. Whether working entirely by hand or in collaboration with AI, the creative vision and decisions remain fundamentally human.
               </p>
               <p>
-                Our badges represent this philosophy. They're free to use on websites, products, music, apps, and art projects — each one acknowledging a different nuance in how humans and machines work together.
+                Our badges represent this philosophy. They&apos;re free to use on websites, products, music, apps, and art projects — each one acknowledging a different nuance in how humans and machines work together.
               </p>
             </motion.div>
           </div>
