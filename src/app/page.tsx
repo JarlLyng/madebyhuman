@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { motion, useMotionValue, useSpring, useMotionTemplate } from 'framer-motion';
 import { getBadgeUrl, getFullBadgeUrl } from './config';
 
@@ -129,6 +130,10 @@ export default function Home() {
     };
   }, [selectedBadge]);
 
+  // Motion template values must be at top level (same hook count every render) to avoid React error #300
+  const spotlitX = useMotionTemplate`calc(${mouseX}px - 350px)`;
+  const spotlitY = useMotionTemplate`calc(${mouseY}px - 350px)`;
+
   // Use centralized config helper for badge URLs
   const getBadgeUrlForBadge = (badge: Badge, variant: 'white' | 'black') => {
     return getBadgeUrl(badge.filename, variant);
@@ -171,7 +176,7 @@ export default function Home() {
         setTimeout(() => setCopied(null), 2000);
         trackEvent('copy_embed', { badge: badge.filename, variant, type });
       }
-    } catch (err) {
+    } catch {
       // Silently fail - user can try again or use fallback method
       // Error logging removed for production
     }
@@ -187,7 +192,7 @@ export default function Home() {
       link.click();
       document.body.removeChild(link);
       trackEvent('download_badge', { badge: badge.filename, variant });
-    } catch (err) {
+    } catch {
       // Fallback: open in new tab if download fails
       window.open(getBadgeUrlForBadge(badge, variant), '_blank');
       // Error logging removed for production
@@ -195,7 +200,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50 relative overflow-hidden">
+    <main className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50 relative overflow-hidden">
       {/* Hero Section */}
       <section className="relative px-4 sm:px-6 lg:px-8 py-32 sm:py-40 lg:py-48 min-h-[70vh] flex items-center justify-center">
         {/* Animated Grid Pattern Background */}
@@ -234,8 +239,8 @@ export default function Home() {
                   fill="url(#mouseGradient)"
                   filter="url(#blurMask)"
                   style={{
-                    x: useMotionTemplate`calc(${mouseX}px - 350px)`,
-                    y: useMotionTemplate`calc(${mouseY}px - 350px)`,
+                    x: spotlitX,
+                    y: spotlitY,
                   }}
                 />
               </mask>
@@ -368,7 +373,7 @@ export default function Home() {
                 }}
               >
                 <div className="rounded mb-4 flex items-center justify-center p-4" style={{ backgroundColor: '#F59898' }}>
-                  <img
+                  <Image
                     src={getBadgeUrlForBadge(badge, 'white')}
                     alt={badge.name}
                     width={360}
@@ -442,7 +447,7 @@ export default function Home() {
 
                 {/* Badge Preview */}
                 <div className="rounded-lg p-8 mb-6 flex items-center justify-center" style={{ backgroundColor: '#F59898' }}>
-                  <img
+                  <Image
                     src={getBadgeUrlForBadge(selectedBadge, selectedVariant)}
                     alt={selectedBadge.name}
                     width={360}
@@ -599,14 +604,14 @@ export default function Home() {
       <footer className="px-4 sm:px-6 lg:px-8 py-12 border-t border-zinc-200 dark:border-zinc-800">
         <div className="max-w-6xl mx-auto text-center space-y-6">
           <div className="flex justify-center">
-            <img
+            <Image
               src={getBadgeUrlForBadge(badges[0], 'white')}
               alt="Co-created with AI"
               width={360}
               height={120}
               className="h-16 w-auto dark:hidden"
             />
-            <img
+            <Image
               src={getBadgeUrlForBadge(badges[0], 'black')}
               alt="Co-created with AI"
               width={360}
@@ -635,6 +640,6 @@ export default function Home() {
           </div>
         </div>
       </footer>
-    </div>
+    </main>
   );
 }
