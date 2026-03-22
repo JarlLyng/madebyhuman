@@ -5,57 +5,15 @@ import Image from 'next/image';
 import { motion, useMotionValue, useSpring, useMotionTemplate } from 'framer-motion';
 import { getBadgeUrl, getFullBadgeUrl } from './config';
 
-declare global {
-  interface Window {
-    umami?: {
-      track: (eventName: string, data?: Record<string, unknown>) => void;
-    };
-  }
-}
-
-interface Badge {
-  name: string;
-  filename: string;
-  description: string;
-}
-
-const badges: Badge[] = [
-  {
-    name: 'Made by Human',
-    filename: 'made',
-    description: 'A general badge celebrating human creativity in all forms',
-  },
-  {
-    name: 'Co-created with AI',
-    filename: 'co-created',
-    description: 'For projects created in collaboration with AI tools',
-  },
-  {
-    name: 'Crafted by Human',
-    filename: 'crafted',
-    description: 'For projects created entirely by human hands',
-  },
-  {
-    name: 'Human in the Loop',
-    filename: 'loop',
-    description: 'For projects where humans guide and curate the creative process',
-  },
-];
+import { badges } from '@/lib/badges';
+import type { Badge } from '@/lib/badges';
+import { trackEvent } from '@/lib/umami';
 
 export default function Home() {
   const [selectedBadge, setSelectedBadge] = useState<Badge | null>(null);
   const [selectedVariant, setSelectedVariant] = useState<'white' | 'black'>('white');
   const [copied, setCopied] = useState<string | null>(null);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
-
-  const trackEvent = (eventName: string, data?: Record<string, unknown>) => {
-    if (typeof window === 'undefined') return;
-    try {
-      window.umami?.track(eventName, data);
-    } catch {
-      // Ignore tracking errors to avoid breaking UX
-    }
-  };
 
   // Smooth spring animation for mouse position
   const mouseX = useSpring(useMotionValue(0), { stiffness: 50, damping: 20 });
@@ -600,46 +558,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="px-4 sm:px-6 lg:px-8 py-12 border-t border-zinc-200 dark:border-zinc-800">
-        <div className="max-w-6xl mx-auto text-center space-y-6">
-          <div className="flex justify-center">
-            <Image
-              src={getBadgeUrlForBadge(badges[0], 'white')}
-              alt="Co-created with AI"
-              width={360}
-              height={120}
-              className="h-16 w-auto dark:hidden"
-            />
-            <Image
-              src={getBadgeUrlForBadge(badges[0], 'black')}
-              alt="Co-created with AI"
-              width={360}
-              height={120}
-              className="h-16 w-auto hidden dark:block"
-            />
-          </div>
-          <div className="text-sm text-zinc-600 dark:text-zinc-400 space-y-2">
-            <p>
-              This project is open source under the MIT License.
-            </p>
-            <p>
-              Share, remix, and build upon it — and remember to credit the humans who made it.
-            </p>
-            <p className="mt-4">
-              Made by{' '}
-              <a
-                href="https://iamjarl.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-zinc-900 dark:text-zinc-100 underline hover:text-zinc-600 dark:hover:text-zinc-400 font-medium"
-              >
-                IAMJARL
-              </a>
-            </p>
-          </div>
-        </div>
-      </footer>
     </main>
   );
 }

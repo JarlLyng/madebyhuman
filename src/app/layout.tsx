@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
 import { getBaseUrl } from "./config";
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -75,6 +77,40 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': `${baseUrl}/#website`,
+      url: `${baseUrl}/`,
+      name: 'Made by Human',
+      description: 'A positive movement celebrating human creativity and the meaningful choices we make in our creative work.',
+      publisher: { '@id': `${baseUrl}/#organization` },
+    },
+    {
+      '@type': 'Organization',
+      '@id': `${baseUrl}/#organization`,
+      name: 'Made by Human',
+      url: `${baseUrl}/`,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${baseUrl}/og-image.png`,
+        width: 1200,
+        height: 630,
+      },
+      founder: {
+        '@type': 'Person',
+        name: 'IAMJARL',
+        url: 'https://iamjarl.com',
+      },
+      sameAs: [
+        'https://github.com/JarlLyng/madebyhuman',
+      ],
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -82,6 +118,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -90,7 +132,9 @@ export default function RootLayout({
           data-website-id="a8ee647d-8843-48d5-8cbc-33224e12ad61"
           strategy="afterInteractive"
         />
+        <Nav />
         {children}
+        <Footer />
       </body>
     </html>
   );
