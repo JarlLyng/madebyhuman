@@ -7,6 +7,10 @@ import type { Badge } from '@/lib/badges';
 import { getBadgeUrl, getFullBadgeUrl } from '../config';
 import { trackEvent } from '@/lib/umami';
 
+function badgeSlug(name: string): string {
+  return name.toLowerCase().replace(/\s+/g, '-');
+}
+
 function BadgeSection({ badge }: { badge: Badge }) {
   const [variant, setVariant] = useState<'white' | 'black'>('white');
   const [copied, setCopied] = useState<string | null>(null);
@@ -46,7 +50,7 @@ function BadgeSection({ badge }: { badge: Badge }) {
   };
 
   return (
-    <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <section id={badgeSlug(badge.name)} className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 scroll-mt-16">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           {/* Badge Preview */}

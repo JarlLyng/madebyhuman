@@ -24,8 +24,7 @@ export default function Footer() {
         <div className="text-sm text-zinc-600 dark:text-zinc-400 space-y-2">
           <p>This project is open source under the MIT License.</p>
           <p>Share, remix, and build upon it — and remember to credit the humans who made it.</p>
-          <p className="mt-4">
-            Made by{' '}
+          <div className="flex items-center justify-center gap-4 pt-4">
             <a
               href="https://iamjarl.com/"
               target="_blank"
@@ -34,7 +33,25 @@ export default function Footer() {
             >
               IAMJARL
             </a>
-          </p>
+            <span className="text-zinc-300 dark:text-zinc-700">&middot;</span>
+            <a
+              href="https://emotionwave.iamjarl.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+            >
+              Emotionwave
+            </a>
+            <span className="text-zinc-300 dark:text-zinc-700">&middot;</span>
+            <a
+              href="https://github.com/JarlLyng/madebyhuman"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+            >
+              GitHub
+            </a>
+          </div>
         </div>
       </div>
     </footer>

@@ -55,15 +55,24 @@ The project currently includes **eight SVG badges** — four in white and four i
 
 ## 🧠 Project Structure
 
-This repository is a **Next.js** project that serves as the foundation for:
-- A single-page website that explains the project philosophy
-- An interactive badge viewer where users can browse and preview all available badges
-- Direct download functionality for SVG badges
-- Embed code generation for badges (for use in GitHub README files, websites, or other projects)
+This repository is a **Next.js** project (static export to GitHub Pages) with three routes:
+
+| Route | File | Description |
+|-------|------|-------------|
+| `/` | `src/app/page.tsx` | Homepage: hero, philosophy, badge gallery modal, how-to, contributing |
+| `/about` | `src/app/about/page.tsx` | Origin story, "Intention Over Purity" philosophy, future vision |
+| `/badges` | `src/app/badges/page.tsx` | Full badge gallery with descriptions, use cases, download + embed codes |
+
+### Shared Components
+- **Nav** (`src/components/Nav.tsx`) — Navigation bar on all pages
+- **Footer** (`src/components/Footer.tsx`) — Footer with cross-links on all pages
+- **Badge data** (`src/lib/badges.ts`) — Single source of truth for badge names, descriptions, and use cases
+- **Analytics** (`src/lib/umami.ts`) — Shared Umami event tracking helper
+- **Config** (`src/app/config.ts`) — Centralized URL generation (base URL, badge URLs)
 
 ### Technology Stack
 
-- **Next.js 16** - React framework with App Router
+- **Next.js 16** - React framework with App Router (static export)
 - **Tailwind CSS v4** - Utility-first CSS framework (free and open source)
 - **TypeScript** - Type-safe development
 - **React 19** - UI library
@@ -101,19 +110,32 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-The main page is located in `src/app/page.tsx` and will auto-update during development.
+Pages are located in `src/app/` (homepage: `page.tsx`, about: `about/page.tsx`, badges: `badges/page.tsx`) and will auto-update during development.
 
 ---
 
 ## 🧭 Website Structure
 
-The website is a fully responsive single-page application featuring:
+The website is a fully responsive multi-page site with three routes:
 
-1. **Hero Section** - Large, impactful introduction with interactive grid pattern that responds to mouse movement
-2. **Manifest** - Brief explanation of the philosophy with side-by-side layout
-3. **Select your badge** - Interactive preview of all badges with download and embed functionality, smooth animations
-4. **How to Use** - Instructions for downloading and embedding badges
-5. **Contributing** - Information on how to contribute to the project
+### Homepage (`/`)
+1. **Hero Section** — Large introduction with interactive grid pattern (mouse-responsive on desktop)
+2. **Our Philosophy** — Brief explanation of the movement's philosophy
+3. **Select your badge** — Interactive badge gallery with modal for download + embed
+4. **How to Use** — Instructions for downloading and embedding badges
+5. **Contributing** — Information on how to contribute to the project
+
+### About (`/about`)
+1. **The Origin** — Story behind "Made by Human" as a counterpoint to "Not By AI"
+2. **Intention Over Purity** — Philosophy: it's not about how, it's about why
+3. **The Badges** — Introduction with link to badge gallery
+4. **Looking Forward** — Vision + open source contribution CTA
+
+### Badges (`/badges`)
+1. **Badge Gallery** — All 4 badges with full descriptions and "When to use" lists
+2. **Per-badge sections** — White/black variant selector, SVG download, embed code copy (Markdown/HTML/URL)
+3. **Anchor IDs** — Deep-linkable sections (`#made-by-human`, `#co-created-with-ai`, etc.)
+4. **Contribute CTA** — GitHub link for new badge ideas
 
 ### Design Features
 
@@ -174,12 +196,19 @@ The `main` branch is protected with the following rules:
 
 The website includes comprehensive SEO optimization:
 
-- **Open Graph** tags for social media sharing
+- **Open Graph** tags for social media sharing (per page)
 - **Twitter Card** metadata
-- **Structured metadata** for search engines
-- **Canonical URLs** for proper indexing
+- **JSON-LD structured data** — WebSite, Organization, ItemList (4 badges), FAQPage (4 Q&As)
+- **Canonical URLs** per page (`/`, `/about`, `/badges`)
+- **Unique meta titles and descriptions** per page
+- **Sitemap** (`public/sitemap.xml`) with all routes + auto-generation script
+- **robots.txt** allowing full crawl with sitemap reference
+- **Google Search Console** connected and verified
+- **Umami analytics** with custom event tracking (badge downloads, embed copies)
 - **Favicon** and icon files for all platforms
-- **Accessibility** features (ARIA labels, keyboard navigation)
+- **Accessibility** features (ARIA labels, keyboard navigation, focus trap)
+
+For full SEO strategy and implementation details, see [SEO_STRATEGY.md](./SEO_STRATEGY.md).
 
 ---
 
