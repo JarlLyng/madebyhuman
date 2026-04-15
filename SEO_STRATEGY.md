@@ -1,184 +1,216 @@
-# SEO Strategy — Made by Human
+# SEO & GEO Strategy — Made by Human
 
-**Site:** https://madebyhuman.iamjarl.com
-**Google Search Console:** Connected
-**Analytics:** Umami
-**Last updated:** 2026-03-22
-
----
-
-## 1. Current Status
-
-### What's in place
-- Meta title, description, and keywords in `layout.tsx`
-- Open Graph and Twitter Card metadata with `og-image.png`
-- Canonical URL configured
-- `robots.txt` allowing full crawl + sitemap reference
-- Static `sitemap.xml` with one entry
-- Google Search Console verification (`google25b9a18021b6d68d.html`)
-- Umami analytics tracking with custom events (badge clicks, downloads, copies)
-
-### What's missing
-- JSON-LD structured data
-- Dynamic sitemap generation (currently static, manually maintained)
-- Content strategy (blog/articles)
-- Backlink strategy
-- Performance monitoring via Search Console (newly added)
-- Multi-language support (potential Danish/Scandinavian audience)
+Site: https://madebyhuman.iamjarl.com  
+Stack: Next.js 16 (static export) + GitHub Pages  
+Google Search Console: Connected  
+Umami Analytics: Connected  
+Last updated: 2026-04-15
 
 ---
 
-## 2. Target Audience & Keywords
+## 1. Product positioning
 
-### Primary audience
-- Developers and designers who want to signal human involvement in their work
-- Open source contributors looking for badges for their projects
-- Creatives exploring the intersection of AI and human creativity
+Made by Human er en åben bevægelse der fejrer menneskelig kreativitet — ikke ved at afvise AI, men ved at ære intention, dømmekraft og personligt præg. Gratis SVG-badges (8 varianter: Made by Human, Co-created with AI, Crafted by Human, Human in the Loop — hvid + sort) til websites, GitHub READMEs, apps og kunstprojekter. Open source (MIT). Next.js static export på GitHub Pages.
 
-### Primary keywords
-| Keyword | Intent | Priority |
-|---------|--------|----------|
-| made by human badge | Transactional | High |
-| human made badge for github | Transactional | High |
-| co-created with ai badge | Transactional | High |
-| crafted by human badge | Transactional | Medium |
-| human in the loop badge | Transactional | Medium |
-| human creativity badge | Informational | Medium |
-| ai collaboration badge | Transactional | Medium |
-
-### Long-tail keywords
-- "how to add a made by human badge to github readme"
-- "free badges for open source projects"
-- "human vs ai created content badge"
-- "show human involvement in project"
-- "human creativity in the age of ai"
+SEO positioning: **den positive "made by human" badge-bevægelse** — differentierer fra anti-AI-holdninger via positiv framing. Konkurrerer med GitHub badge-generatorer, shields.io og lignende badge-tjenester, men med unik filosofisk vinkel.
 
 ---
 
-## 3. Technical SEO
+## 2. Hvad der allerede er på plads
 
-### 3.1 Structured Data (JSON-LD)
-Add the following schemas to `layout.tsx`:
+### Technical SEO (done)
 
-- **WebSite** — helps Google understand the site identity
-- **Organization** — establishes brand presence
-- **BreadcrumbList** — if additional pages are added
+- [x] JSON-LD `@graph`: WebSite + Organization i `layout.tsx`
+- [x] Comprehensive metadata i `layout.tsx`: title, description, keywords (8 stk), OG tags, Twitter cards
+- [x] OG image (1200x630)
+- [x] `robots.txt` med sitemap-reference
+- [x] `sitemap.xml` med 3 URL'er (/, /about, /badges) — genereret via `scripts/generate-sitemap.mjs`
+- [x] Google Search Console connected + verification file
+- [x] Canonical URL
+- [x] `lang="en"`
+- [x] Umami analytics med custom events (badge clicks, downloads, copies)
+- [x] Favicon-set (ICO, SVG, PNG 192/512, Apple Touch Icon)
+- [x] Static export (excellent Core Web Vitals)
 
-### 3.2 Sitemap
-- Automate sitemap generation or update `lastmod` on each deploy
-- Add new pages to sitemap as content grows
+### Sider (done)
 
-### 3.3 Performance
-- Site is statically exported (Next.js `output: 'export'`) — excellent for Core Web Vitals
-- SVG badges are lightweight
-- Monitor Core Web Vitals in Search Console
+- [x] Homepage (`/`) — Hero, manifest/philosophy, badge preview, how to use, contributing
+- [x] About page (`/about`) — Dybere historie om bevægelsen
+- [x] Badges page (`/badges`) — Dedikeret badge-galleri med download + embed kode
 
-### 3.4 Indexing
-- [x] Submit sitemap in Google Search Console
-- [ ] Request indexing of main page
-- [ ] Monitor "Coverage" report for crawl issues
-- [ ] Add Bing Webmaster Tools
+### Cross-linking (delvist)
 
----
-
-## 4. Content Strategy
-
-### 4.1 Additional Pages (Phase 1)
-Consider adding these pages to increase keyword coverage:
-
-| Page | Purpose | Target Keywords |
-|------|---------|----------------|
-| `/about` | Deeper story about the movement | human creativity movement, made by human mission |
-| `/badges` | Dedicated badge gallery with full descriptions | free open source badges, github readme badges |
-| `/guide` | How to choose and use the right badge | how to add badge to github, badge embed guide |
-
-### 4.2 Blog/Articles (Phase 2)
-A `/blog` section could capture informational search traffic:
-
-- "Why Transparency About AI Use Matters"
-- "How to Signal Human Creativity in Your Projects"
-- "The Difference Between AI-Generated and Human-Curated Work"
-- "Adding Badges to Your GitHub README: A Complete Guide"
-
-### 4.3 Content Principles
-- Write for humans first, search engines second
-- Focus on the positive framing (celebrating human creativity, not anti-AI)
-- Keep content concise and actionable
+- [x] Footer link til iamjarl.com
+- [ ] Andre IAMJARL-projekter mangler i footer
 
 ---
 
-## 5. Link Building & Distribution
+## 3. DU SKAL: Ret fejl i koden
 
-### 5.1 GitHub Presence
-- Optimize the GitHub repo README with badge examples and clear descriptions
-- Encourage users to link back to the site when using badges
-- Add the site URL to the GitHub repo "About" section
+Se `RETTELSER.md` i projektets rod. Opsummering:
 
-### 5.2 Community & Outreach
-- Share on relevant developer communities (Hacker News, Reddit r/opensource, Dev.to)
-- Submit to badge directories and "awesome" lists on GitHub
-- Reach out to bloggers writing about AI and human creativity
-
-### 5.3 Badge-Driven Backlinks
-Each badge embeds a URL back to the site. As adoption grows, this creates organic backlinks:
-- Markdown embeds in READMEs link to the badge image hosted on the domain
-- Consider adding an optional link wrapper so badges can link back to the site
+1. **JSON-LD på undersider** → /about og /badges mangler structured data. Tilføj BreadcrumbList til begge
+2. **FAQPage JSON-LD** → Tilføj til homepage eller about-side
+3. **llms.txt** → Opret i `public/`
+4. **robots.txt AI-bots** → Tilføj eksplicitte Allow-regler
+5. **Sitemap lastmod** → Sikr automatisk opdatering ved deploy
+6. **Footer cross-links** → Tilføj links til IAMJARL-projekter der bruger badges
 
 ---
 
-## 6. Monitoring & KPIs
+## 4. Keyword-strategi
 
-### Search Console Metrics
-| Metric | Baseline | Target (3 months) | Target (6 months) |
-|--------|----------|--------------------|--------------------|
-| Indexed pages | 1 | 4+ | 8+ |
-| Total impressions | TBD | 500/month | 2,000/month |
-| Total clicks | TBD | 50/month | 300/month |
-| Average position | TBD | Top 20 for primary keywords | Top 10 for primary keywords |
+### Tier 1 — Badge-søgninger (transactional, high intent)
 
-### Umami Metrics
-| Metric | What it tells us |
-|--------|-----------------|
-| Badge download events | Which badges are most popular |
-| Copy embed events | Adoption signal — people embedding badges |
-| GitHub repo click events | Interest in contributing |
-| Page views & unique visitors | Overall reach |
+- made by human badge
+- human made badge for github
+- co-created with ai badge
+- crafted by human badge
+- human in the loop badge
+- ai collaboration badge
 
-### Review Cadence
-- **Weekly:** Check Search Console for crawl errors and new queries
-- **Monthly:** Review impressions, clicks, and keyword rankings
-- **Quarterly:** Evaluate content strategy and adjust keyword targets
+### Tier 2 — Bevægelses-søgninger (informational)
 
----
+- human creativity movement
+- human creativity in the age of ai
+- show human involvement in project
+- ai transparency badge
+- made by human vs ai
 
-## 7. Implementation Roadmap
+### Tier 3 — Long-tail / how-to
 
-### Phase 1 — Foundation (Now)
-- [x] Google Search Console connected
-- [x] Add JSON-LD structured data (WebSite + Organization) — added to `layout.tsx`
-- [x] Update `sitemap.xml` lastmod to auto-update on deploy — `scripts/generate-sitemap.mjs` runs as `prebuild`
-- [ ] Request indexing in Search Console
-- [ ] Add Bing Webmaster Tools
-- [ ] Set baseline metrics
+- how to add a made by human badge to github readme
+- free badges for open source projects
+- human vs ai created content badge
+- badge embed code for github
 
-### Phase 2 — Content Expansion (1-2 months)
-- [ ] Create `/about` page
-- [ ] Create dedicated `/badges` page with richer descriptions
-- [ ] Create `/guide` page with step-by-step instructions
-- [ ] Update sitemap with new pages
-- [ ] Optimize internal linking between pages
+### Tier 4 — Open source badges (bredere)
 
-### Phase 3 — Growth (3-6 months)
-- [ ] Launch blog with first 2-3 articles
-- [ ] Begin outreach to developer communities
-- [ ] Submit to "awesome" lists and badge directories
-- [ ] Consider `hreflang` tags if targeting Scandinavian audience
-- [ ] Evaluate adding a badge link-back feature for organic backlinks
+- free svg badges for projects
+- github readme badges
+- open source project badges
+- developer badges free download
 
 ---
 
-## 8. Notes
+## 5. GEO — Generative Engine Optimization
 
-- The site uses static export, so any dynamic features (dynamic sitemap, server-side rendering) would require a change in hosting strategy or build-time generation.
-- The current single-page structure is effective for a focused project but limits keyword coverage. Adding even 2-3 pages significantly improves SEO potential.
-- Badge adoption is the strongest organic growth lever — every README that embeds a badge is a potential backlink and brand impression.
+### Hvad der er på plads
+
+- WebSite + Organization JSON-LD
+- God meta description med klar positionering
+- Static export = fuld HTML for crawlere
+- 3 indeksbare sider
+
+### DU SKAL: Tilføj llms.txt
+
+Opret `public/llms.txt`:
+
+```
+# Made by Human
+
+> Celebrating human creativity — not by rejecting AI, but by honoring the intention, judgement, and personal touch that humans bring to every creative project.
+
+Made by Human is a free, open-source badge system for websites, GitHub READMEs, apps, and art projects. Each badge acknowledges a different nuance in how humans and AI work together.
+
+## Available Badges (8 SVG variants)
+- Made by Human (white + black) — General badge celebrating human creativity
+- Co-created with AI (white + black) — For projects created in collaboration with AI tools
+- Crafted by Human (white + black) — For projects created entirely by human hands
+- Human in the Loop (white + black) — For projects where humans guide and curate the process
+
+## How to Use
+1. Choose your badge at https://madebyhuman.iamjarl.com/badges
+2. Download the SVG or copy the embed code
+3. Add to your GitHub README, website, or project
+
+## Badge URLs
+All badges hosted at: https://madebyhuman.iamjarl.com/badges/[name]-[variant].svg
+Example: https://madebyhuman.iamjarl.com/badges/made-white.svg
+
+## Technical
+- Open source (MIT License) on GitHub
+- SVG format for sharp rendering at any size
+- White and black variants for any background
+
+## Links
+- Website: https://madebyhuman.iamjarl.com
+- Badges: https://madebyhuman.iamjarl.com/badges
+- About: https://madebyhuman.iamjarl.com/about
+- GitHub: https://github.com/JarlLyng/madebyhuman
+- Creator: https://iamjarl.com
+```
+
+### DU SKAL: Tilføj FAQPage JSON-LD
+
+Tilføj til homepage eller about-side:
+
+1. "What is Made by Human?" — A positive movement celebrating human creativity with free SVG badges
+2. "Is Made by Human anti-AI?" — No. We celebrate human creativity regardless of whether AI was used
+3. "How do I add a badge to my GitHub README?" — Copy the markdown embed code from the badges page
+4. "Which badge should I choose?" — Made by Human (general), Co-created with AI (used AI tools), Crafted by Human (no AI), Human in the Loop (guided AI)
+5. "Are the badges free?" — Yes, open source under MIT License
+6. "Can I customize the badges?" — Fork the repo and modify the SVGs
+
+### Target queries for AI-citation
+
+- "Made by human badge for github" → /badges
+- "Free human creativity badge" → homepage
+- "AI collaboration badge open source" → /badges
+- "How to show human involvement in project" → /about
+- "Human in the loop badge" → /badges
+
+---
+
+## 6. Cross-linking
+
+### Fra Made by Human til andre IAMJARL-projekter
+
+Tilføj i footer:
+
+- [iamjarl.com](https://iamjarl.com) — portfolio (allerede til stede)
+- [BeerTuner](https://beertuner.iamjarl.com) — uses Made by Human badge
+- [EmotionWave](https://emotionwave.iamjarl.com) — AI-powered art project
+- [Get to the Movie!](https://gettothemovie.iamjarl.com) — AI-matched recommendations
+
+### Badge-drevet backlinking
+
+Hver badge der embeddes i et GitHub README eller website skaber et potentielt backlink. Overvej at tilføje en valgfri link-wrapper:
+
+```markdown
+[![Made by Human](https://madebyhuman.iamjarl.com/badges/made-white.svg)](https://madebyhuman.iamjarl.com)
+```
+
+---
+
+## 7. Where to make noise
+
+### Reddit
+
+- **r/opensource** — "Free 'Made by Human' badges for your open source projects"
+- **r/github** — "Show human involvement in your README with free SVG badges"
+- **r/webdev** (~1M) — developer angle
+- **r/design** — badge design + philosophy
+- **r/artificial** — AI transparency diskussion
+
+### Andre kanaler
+
+- **Hacker News** — Show HN: Made by Human — Free badges celebrating human creativity
+- **Product Hunt** — "Celebrate human creativity with free badges for your projects"
+- **Dev.to** — artikel: "How to Signal Human Creativity in Your Open Source Projects"
+- **GitHub "awesome" lists** — submit til awesome-badges, awesome-open-source
+- **Indie Hackers** — bevægelses-vinkel
+
+### Badge-adoption strategi
+
+- Brug Made by Human badges på ALLE IAMJARL-projekter
+- Opfordr GitHub-community til at adopte
+- Hver README med badge = organic backlink + brand impression
+
+---
+
+## 8. Monitoring
+
+- **Google Search Console**: Ugentlig — impressions, clicks, crawl errors
+- **Umami Analytics**: Badge downloads, embed copies, page views, referral sources
+- **Nøgletal**: Badge adoption rate (downloads + embeds), organic traffic, backlinks fra badge-embeds
