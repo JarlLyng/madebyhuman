@@ -4,18 +4,37 @@ import { getBaseUrl } from '../config';
 const baseUrl = getBaseUrl();
 
 export const metadata: Metadata = {
-  title: 'Badges - Made by Human',
+  title: 'Free Transparency Badges for GitHub & Websites - Made by Human',
   description:
-    'Free badges for your projects — Made by Human, Co-created with AI, Crafted by Human, and Human in the Loop. Download SVGs or copy embed codes for your README, website, or portfolio.',
+    'Download free SVG badges to mark human creativity and AI collaboration in your projects. Made by Human, Co-created with AI, Crafted by Human, and Human in the Loop — for GitHub READMEs, websites, and portfolios.',
   alternates: {
     canonical: `${baseUrl}/badges`,
   },
   openGraph: {
-    title: 'Badges - Made by Human',
+    title: 'Free Transparency Badges - Made by Human',
     description:
-      'Free badges for your projects — signal human creativity and transparency about AI collaboration.',
+      'Download free SVG badges to mark human creativity and AI collaboration. For GitHub READMEs, websites, and portfolios.',
     url: `${baseUrl}/badges`,
   },
+};
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: `${baseUrl}/`,
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Badges',
+      item: `${baseUrl}/badges`,
+    },
+  ],
 };
 
 export default function BadgesLayout({
@@ -23,5 +42,13 @@ export default function BadgesLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      {children}
+    </>
+  );
 }

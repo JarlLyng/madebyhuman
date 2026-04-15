@@ -1,5 +1,26 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://madebyhuman.iamjarl.com/sitemap.xml
+# AI crawlers — explicitly welcome
+User-agent: GPTBot
+Allow: /
 
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Cohere-ai
+Allow: /
+
+Sitemap: https://madebyhuman.iamjarl.com/sitemap.xml

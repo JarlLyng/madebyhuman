@@ -39,6 +39,9 @@ jobs:
         run: npm run lint
         continue-on-error: true
 
+      - name: Generate sitemap
+        run: node scripts/generate-sitemap.mjs
+
       - name: Build
         run: npm run build
         env:

@@ -85,7 +85,7 @@ const jsonLd = {
       '@id': `${baseUrl}/#website`,
       url: `${baseUrl}/`,
       name: 'Made by Human',
-      description: 'A positive movement celebrating human creativity and the meaningful choices we make in our creative work.',
+      description: 'Free transparency badges for human-AI collaborative projects. A positive movement celebrating human creativity.',
       publisher: { '@id': `${baseUrl}/#organization` },
     },
     {
@@ -101,11 +101,101 @@ const jsonLd = {
       },
       founder: {
         '@type': 'Person',
-        name: 'IAMJARL',
+        name: 'Jarl Lyng',
         url: 'https://iamjarl.com',
       },
       sameAs: [
         'https://github.com/JarlLyng/madebyhuman',
+        'https://iamjarl.com',
+      ],
+    },
+    {
+      '@type': 'ItemList',
+      name: 'Available Badges',
+      description: 'Free transparency badges for marking human involvement and AI collaboration',
+      numberOfItems: 4,
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Made by Human',
+          description: 'A general badge celebrating human creativity in all forms',
+          url: `${baseUrl}/badges#made-by-human`,
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Co-created with AI',
+          description: 'For projects created in collaboration with AI tools',
+          url: `${baseUrl}/badges#co-created-with-ai`,
+        },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: 'Crafted by Human',
+          description: 'For projects created entirely by human hands',
+          url: `${baseUrl}/badges#crafted-by-human`,
+        },
+        {
+          '@type': 'ListItem',
+          position: 4,
+          name: 'Human in the Loop',
+          description: 'For projects where humans guide and curate the creative process',
+          url: `${baseUrl}/badges#human-in-the-loop`,
+        },
+      ],
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'What is Made by Human?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: "Made by Human is a free badge collection for developers and designers to transparently mark their work. Choose from 'Made by Human', 'Co-created with AI', 'Human in the Loop', or 'Crafted by Human' to indicate your creation process.",
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Is Made by Human anti-AI?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'No. Made by Human celebrates human creativity regardless of whether AI was used. The badges signal transparency about your creative process — not a rejection of AI tools.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'How do I add a badge to my GitHub README?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Copy the badge markdown or HTML from madebyhuman.iamjarl.com/badges, paste into your README file, and commit. The badge displays directly in your repository, signaling transparency about your creative process.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Which badge should I choose?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: "'Made by Human' is a general badge for human creativity. 'Co-created with AI' shows human-AI collaboration. 'Crafted by Human' is for work made entirely by hand. 'Human in the Loop' indicates AI-assisted work with human oversight and editorial control.",
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Are the badges free to use?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Yes, all badges are completely free under the MIT License. Download SVG files, copy markdown embeds, or link directly to hosted badges. No attribution required, but backlinks are appreciated.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Can I customize the badges?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Yes. Fork the GitHub repository and modify the SVG files to match your needs. The project is open source under the MIT License.',
+          },
+        },
       ],
     },
   ],
