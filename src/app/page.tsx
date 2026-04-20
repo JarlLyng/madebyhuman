@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, useMotionValue, useSpring, useMotionTemplate } from 'framer-motion';
-import { getBadgeUrl, getFullBadgeUrl } from './config';
+import { getBadgeUrl, getFullBadgeUrl, getEmbedCode } from './config';
 
 import { badges } from '@/lib/badges';
 import type { Badge } from '@/lib/badges';
@@ -98,21 +98,10 @@ export default function Home() {
   };
 
   const copyEmbedCode = async (badge: Badge, variant: 'white' | 'black', type: 'markdown' | 'html' | 'img') => {
-    // Use centralized config helper for full badge URLs (with origin)
-    const fullUrl = getFullBadgeUrl(badge.filename, variant);
-    
-    let code = '';
-    let feedbackType = '';
-    if (type === 'markdown') {
-      code = `![${badge.name}](${fullUrl})`;
-      feedbackType = 'markdown';
-    } else if (type === 'html') {
-      code = `<img src="${fullUrl}" alt="${badge.name}" width="360" height="120">`;
-      feedbackType = 'html';
-    } else {
-      code = fullUrl;
-      feedbackType = 'url';
-    }
+    // Map 'img' (legacy label) to 'url' for the centralized helper
+    const embedType = type === 'img' ? 'url' : type;
+    const code = getEmbedCode(badge.name, badge.filename, variant, embedType);
+    const feedbackType = embedType;
 
     try {
       if (navigator.clipboard && window.isSecureContext) {
@@ -488,8 +477,8 @@ export default function Home() {
               <p className="text-zinc-600 dark:text-zinc-400 mb-4">
                 Copy the markdown code and paste it directly into your README.md file to display your badge.
               </p>
-              <div className="bg-zinc-900 dark:bg-zinc-800 rounded-lg p-4 text-sm font-mono text-zinc-100">
-                <code>{`![Co-created with AI](${getFullBadgeUrl('co-created', 'white')})`}</code>
+              <div className="bg-zinc-900 dark:bg-zinc-800 rounded-lg p-4 text-sm font-mono text-zinc-100 overflow-x-auto">
+                <code>{getEmbedCode('Co-created with AI', 'co-created', 'white', 'markdown')}</code>
               </div>
             </div>
 
@@ -498,8 +487,8 @@ export default function Home() {
               <p className="text-zinc-600 dark:text-zinc-400 mb-4">
                 Copy the HTML code and paste it into your website to display your badge.
               </p>
-              <div className="bg-zinc-900 dark:bg-zinc-800 rounded-lg p-4 text-sm font-mono text-zinc-100">
-                <code>{`<img src="${getFullBadgeUrl('co-created', 'white')}" alt="Co-created with AI" width="360" height="120">`}</code>
+              <div className="bg-zinc-900 dark:bg-zinc-800 rounded-lg p-4 text-sm font-mono text-zinc-100 overflow-x-auto">
+                <code>{getEmbedCode('Co-created with AI', 'co-created', 'white', 'html')}</code>
               </div>
             </div>
 

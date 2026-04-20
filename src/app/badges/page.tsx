@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { badges } from '@/lib/badges';
 import type { Badge } from '@/lib/badges';
-import { getBadgeUrl, getFullBadgeUrl } from '../config';
+import { getBadgeUrl, getEmbedCode, type EmbedType } from '../config';
 import { trackEvent } from '@/lib/umami';
 
 function badgeSlug(name: string): string {
@@ -15,17 +15,10 @@ function BadgeSection({ badge }: { badge: Badge }) {
   const [variant, setVariant] = useState<'white' | 'black'>('white');
   const [copied, setCopied] = useState<string | null>(null);
 
-  const fullUrl = getFullBadgeUrl(badge.filename, variant);
-
-  const embedCodes = {
-    markdown: `![${badge.name}](${fullUrl})`,
-    html: `<img src="${fullUrl}" alt="${badge.name}" width="360" height="120">`,
-    url: fullUrl,
-  };
-
-  const copyCode = async (type: 'markdown' | 'html' | 'url') => {
+  const copyCode = async (type: EmbedType) => {
+    const code = getEmbedCode(badge.name, badge.filename, variant, type);
     try {
-      await navigator.clipboard.writeText(embedCodes[type]);
+      await navigator.clipboard.writeText(code);
       setCopied(type);
       setTimeout(() => setCopied(null), 2000);
       trackEvent('copy_embed', { badge: badge.filename, variant, type });
