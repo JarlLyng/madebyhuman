@@ -39,3 +39,29 @@ export function getFullBadgeUrl(filename: string, variant: 'white' | 'black'): s
   return `${baseUrl}/badges/${filename}-${variant}.svg`;
 }
 
+/**
+ * Generate embed code for a badge.
+ * Wraps the image in a link back to madebyhuman.iamjarl.com for organic backlinks.
+ * Every README or site that uses this code becomes a backlink — the strongest SEO growth lever.
+ */
+export type EmbedType = 'markdown' | 'html' | 'url';
+
+export function getEmbedCode(
+  badgeName: string,
+  filename: string,
+  variant: 'white' | 'black',
+  type: EmbedType,
+): string {
+  const fullUrl = getFullBadgeUrl(filename, variant);
+  const siteUrl = getBaseUrlClient();
+
+  switch (type) {
+    case 'markdown':
+      return `[![${badgeName}](${fullUrl})](${siteUrl})`;
+    case 'html':
+      return `<a href="${siteUrl}"><img src="${fullUrl}" alt="${badgeName}" width="360" height="120"></a>`;
+    case 'url':
+      return fullUrl;
+  }
+}
+
