@@ -62,6 +62,24 @@ export default function Footer() {
             </a>
             <span className="text-zinc-300 dark:text-zinc-700">&middot;</span>
             <a
+              href="https://runningfromhorses.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+            >
+              Running from Horses
+            </a>
+            <span className="text-zinc-300 dark:text-zinc-700">&middot;</span>
+            <a
+              href="https://trimrpix.iamjarl.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+            >
+              TrimrPix
+            </a>
+            <span className="text-zinc-300 dark:text-zinc-700">&middot;</span>
+            <a
               href="https://github.com/JarlLyng/madebyhuman"
               target="_blank"
               rel="noopener noreferrer"
