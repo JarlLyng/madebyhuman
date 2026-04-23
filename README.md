@@ -2,6 +2,12 @@
 
 # Made by Human
 
+[![License: MIT](https://img.shields.io/github/license/JarlLyng/madebyhuman)](LICENSE)
+[![Last commit](https://img.shields.io/github/last-commit/JarlLyng/madebyhuman)](https://github.com/JarlLyng/madebyhuman/commits/main)
+[![Deploy](https://img.shields.io/github/actions/workflow/status/JarlLyng/madebyhuman/deploy.yml?label=deploy)](https://github.com/JarlLyng/madebyhuman/actions/workflows/deploy.yml)
+[![Issues](https://img.shields.io/github/issues/JarlLyng/madebyhuman)](https://github.com/JarlLyng/madebyhuman/issues)
+[![Website](https://img.shields.io/website?url=https%3A%2F%2Fmadebyhuman.iamjarl.com)](https://madebyhuman.iamjarl.com)
+
 **Celebrating human creativity — not by rejecting AI, but by honoring the intention, judgement, and personal touch that humans bring to every creative project.**
 
 Free SVG badges for websites, GitHub READMEs, apps, and art projects. Open source under MIT.
