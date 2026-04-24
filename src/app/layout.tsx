@@ -217,13 +217,16 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <a href="#main-content" className="skip-to-content">
+          Skip to main content
+        </a>
         <Script
           src="https://umami-iamjarl.vercel.app/script.js"
           data-website-id="a8ee647d-8843-48d5-8cbc-33224e12ad61"
           strategy="afterInteractive"
         />
         <Nav />
-        {children}
+        <div id="main-content">{children}</div>
         <Footer />
       </body>
     </html>
