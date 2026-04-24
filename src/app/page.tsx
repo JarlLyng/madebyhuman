@@ -305,14 +305,16 @@ export default function Home() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             {badges.map((badge, index) => (
-              <motion.div
+              <motion.button
                 key={badge.filename}
+                type="button"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -4 }}
-                className="border border-zinc-200 dark:border-zinc-800 rounded-lg p-6 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all cursor-pointer"
+                aria-label={`Open ${badge.name} badge details`}
+                className="text-left border border-zinc-200 dark:border-zinc-800 rounded-lg p-6 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all cursor-pointer bg-transparent"
                 onClick={() => {
                   setSelectedBadge(badge);
                   setSelectedVariant('white');
@@ -330,7 +332,7 @@ export default function Home() {
                 </div>
                 <h3 className="font-semibold text-lg mb-2">{badge.name}</h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400">{badge.description}</p>
-              </motion.div>
+              </motion.button>
             ))}
           </div>
 
@@ -369,9 +371,10 @@ export default function Home() {
                 </div>
 
                 {/* Variant Selector */}
-                <div className="flex gap-4 mb-6">
+                <div className="flex gap-4 mb-6" role="group" aria-label="Badge variant">
                   <button
                     onClick={() => setSelectedVariant('white')}
+                    aria-pressed={selectedVariant === 'white'}
                     className={`px-4 py-2 rounded ${
                       selectedVariant === 'white'
                         ? 'bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900'
@@ -382,6 +385,7 @@ export default function Home() {
                   </button>
                   <button
                     onClick={() => setSelectedVariant('black')}
+                    aria-pressed={selectedVariant === 'black'}
                     className={`px-4 py-2 rounded ${
                       selectedVariant === 'black'
                         ? 'bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900'
@@ -436,6 +440,10 @@ export default function Home() {
                       >
                         {copied === 'url' ? '✓ Copied!' : 'Copy Image URL'}
                       </button>
+                    </div>
+                    {/* Screen reader announcement for copy action */}
+                    <div className="sr-only" role="status" aria-live="polite">
+                      {copied ? `${copied} embed code copied to clipboard` : ''}
                     </div>
                   </div>
                 </div>

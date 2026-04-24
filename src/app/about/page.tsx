@@ -81,6 +81,17 @@ export default function AboutPage() {
                 More a reminder that there&apos;s still a human behind it all — even when AI is part
                 of the process.
               </p>
+              <p className="pt-2">
+                <a
+                  href="https://medium.com/@jarllyng/made-by-human-6fe8ccf0ce2f"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-zinc-900 dark:text-zinc-100 underline hover:text-zinc-600 dark:hover:text-zinc-400 font-medium"
+                >
+                  Read the full story on Medium
+                </a>
+                <span className="sr-only"> (opens in a new tab)</span>
+              </p>
             </div>
           </div>
         </div>

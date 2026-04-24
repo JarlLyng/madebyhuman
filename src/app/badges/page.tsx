@@ -60,9 +60,14 @@ function BadgeSection({ badge }: { badge: Badge }) {
                 className="w-full max-w-sm h-auto"
               />
             </div>
-            <div className="flex gap-3 mb-4">
+            <div
+              className="flex gap-3 mb-4"
+              role="group"
+              aria-label={`${badge.name} variant`}
+            >
               <button
                 onClick={() => setVariant('white')}
+                aria-pressed={variant === 'white'}
                 className={`px-4 py-2 rounded text-sm font-medium transition-colors ${
                   variant === 'white'
                     ? 'bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900'
@@ -73,6 +78,7 @@ function BadgeSection({ badge }: { badge: Badge }) {
               </button>
               <button
                 onClick={() => setVariant('black')}
+                aria-pressed={variant === 'black'}
                 className={`px-4 py-2 rounded text-sm font-medium transition-colors ${
                   variant === 'black'
                     ? 'bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900'
@@ -84,6 +90,7 @@ function BadgeSection({ badge }: { badge: Badge }) {
             </div>
             <button
               onClick={downloadBadge}
+              aria-label={`Download ${badge.name} ${variant} variant as SVG`}
               className="w-full px-6 py-3 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-lg hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors font-medium"
             >
               Download SVG
@@ -118,22 +125,29 @@ function BadgeSection({ badge }: { badge: Badge }) {
             <div className="space-y-2">
               <button
                 onClick={() => copyCode('markdown')}
+                aria-label={`Copy ${badge.name} markdown embed code`}
                 className="w-full text-left px-4 py-2 bg-zinc-50 dark:bg-zinc-800 rounded border border-zinc-200 dark:border-zinc-700 hover:bg-zinc-100 dark:hover:bg-zinc-700 transition-colors text-sm"
               >
                 {copied === 'markdown' ? '✓ Copied!' : 'Copy Markdown'}
               </button>
               <button
                 onClick={() => copyCode('html')}
+                aria-label={`Copy ${badge.name} HTML embed code`}
                 className="w-full text-left px-4 py-2 bg-zinc-50 dark:bg-zinc-800 rounded border border-zinc-200 dark:border-zinc-700 hover:bg-zinc-100 dark:hover:bg-zinc-700 transition-colors text-sm"
               >
                 {copied === 'html' ? '✓ Copied!' : 'Copy HTML'}
               </button>
               <button
                 onClick={() => copyCode('url')}
+                aria-label={`Copy ${badge.name} image URL`}
                 className="w-full text-left px-4 py-2 bg-zinc-50 dark:bg-zinc-800 rounded border border-zinc-200 dark:border-zinc-700 hover:bg-zinc-100 dark:hover:bg-zinc-700 transition-colors text-sm"
               >
                 {copied === 'url' ? '✓ Copied!' : 'Copy Image URL'}
               </button>
+            </div>
+            {/* Screen reader announcement for copy action */}
+            <div className="sr-only" role="status" aria-live="polite">
+              {copied ? `${copied} embed code copied to clipboard` : ''}
             </div>
           </div>
         </div>
