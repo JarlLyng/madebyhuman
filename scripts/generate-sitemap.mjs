@@ -11,6 +11,7 @@ const pages = [
   { path: '/', changefreq: 'weekly', priority: '1.0' },
   { path: '/about', changefreq: 'monthly', priority: '0.8' },
   { path: '/badges', changefreq: 'weekly', priority: '0.9' },
+  { path: '/guide', changefreq: 'monthly', priority: '0.9' },
 ];
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

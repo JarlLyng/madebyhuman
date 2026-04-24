@@ -23,6 +23,12 @@ export default function Nav() {
           >
             Badges
           </Link>
+          <Link
+            href="/guide"
+            className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+          >
+            Guide
+          </Link>
           <a
             href="https://github.com/JarlLyng/madebyhuman"
             target="_blank"
