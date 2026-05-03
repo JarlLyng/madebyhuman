@@ -21,8 +21,8 @@ const baseUrl = getBaseUrl();
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
-  title: "Made by Human",
-  description: "Created with heart, intent, and sometimes AI — but always by a human. A positive movement celebrating human creativity and the meaningful choices we make in our creative work.",
+  title: "Made by Human — Free Badges for Human-Made Creative Work",
+  description: "The Made by Human movement: free badges and a manifesto for creators in an AI-saturated world. Add the badge to your project in 30 seconds.",
   keywords: ["human creativity", "AI collaboration", "badges", "open source", "creative work", "human in the loop", "crafted by human", "made by human"],
   authors: [{ name: "IAMJARL", url: "https://iamjarl.com" }],
   creator: "IAMJARL",
@@ -53,8 +53,8 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "Made by Human",
-    description: "Created with heart, intent, and sometimes AI — but always by a human. A positive movement celebrating human creativity and the meaningful choices we make in our creative work.",
+    title: "Made by Human — Free Badges for Human-Made Creative Work",
+    description: "The Made by Human movement: free badges and a manifesto for creators in an AI-saturated world. Add the badge to your project in 30 seconds.",
     type: "website",
     url: `${baseUrl}/`,
     siteName: "Made by Human",
@@ -70,8 +70,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Made by Human",
-    description: "Created with heart, intent, and sometimes AI — but always by a human. A positive movement celebrating human creativity and the meaningful choices we make in our creative work.",
+    title: "Made by Human — Free Badges for Human-Made Creative Work",
+    description: "The Made by Human movement: free badges and a manifesto for creators in an AI-saturated world. Add the badge to your project in 30 seconds.",
     images: [`/og-image.png`],
     creator: "@iamjarl",
   },
