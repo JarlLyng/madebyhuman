@@ -6,35 +6,7 @@
     <atom:link href="https://madebyhuman.iamjarl.com/rss.xml" rel="self" type="application/rss+xml" />
     <description>Essays and updates on human creativity in an AI-saturated world.</description>
     <language>en</language>
-    <lastBuildDate>Fri, 22 May 2026 21:46:40 GMT</lastBuildDate>
-    <item>
-      <title>Why Transparency About AI Use Matters</title>
-      <link>https://madebyhuman.iamjarl.com/blog/why-ai-transparency-matters</link>
-      <guid isPermaLink="true">https://madebyhuman.iamjarl.com/blog/why-ai-transparency-matters</guid>
-      <pubDate>Fri, 22 May 2026 00:00:00 GMT</pubDate>
-      <description>In an AI-saturated world, being open about how you create builds trust and honors the human element in work.</description>
-    </item>
-    <item>
-      <title>Welcome to the Made by Human blog</title>
-      <link>https://madebyhuman.iamjarl.com/blog/welcome-to-the-blog</link>
-      <guid isPermaLink="true">https://madebyhuman.iamjarl.com/blog/welcome-to-the-blog</guid>
-      <pubDate>Fri, 22 May 2026 00:00:00 GMT</pubDate>
-      <description>A place to share thinking, updates, and stories from the Made by Human movement.</description>
-    </item>
-    <item>
-      <title>Made by Human vs. Not By AI: A Positive Approach to Transparency</title>
-      <link>https://madebyhuman.iamjarl.com/blog/made-by-human-vs-not-by-ai</link>
-      <guid isPermaLink="true">https://madebyhuman.iamjarl.com/blog/made-by-human-vs-not-by-ai</guid>
-      <pubDate>Fri, 22 May 2026 00:00:00 GMT</pubDate>
-      <description>Why we choose to celebrate human creativity and curation instead of defining our work by what it is not.</description>
-    </item>
-    <item>
-      <title>How to Signal Human Creativity in Your Projects</title>
-      <link>https://madebyhuman.iamjarl.com/blog/how-to-signal-human-creativity</link>
-      <guid isPermaLink="true">https://madebyhuman.iamjarl.com/blog/how-to-signal-human-creativity</guid>
-      <pubDate>Fri, 22 May 2026 00:00:00 GMT</pubDate>
-      <description>A guide on showcasing human craftsmanship and intention alongside AI tools, and how badges can build trust.</description>
-    </item>
+    <lastBuildDate>Fri, 22 May 2026 22:09:19 GMT</lastBuildDate>
     <item>
       <title>How to Add a 'Made by Human' Badge to Your Next.js or React Website</title>
       <link>https://madebyhuman.iamjarl.com/blog/how-to-add-badge-to-nextjs-react</link>
@@ -43,11 +15,39 @@
       <description>A quick technical guide on integrating our responsive, theme-aware SVG badges into modern React and Next.js applications.</description>
     </item>
     <item>
+      <title>How to Signal Human Creativity in Your Projects</title>
+      <link>https://madebyhuman.iamjarl.com/blog/how-to-signal-human-creativity</link>
+      <guid isPermaLink="true">https://madebyhuman.iamjarl.com/blog/how-to-signal-human-creativity</guid>
+      <pubDate>Mon, 18 May 2026 00:00:00 GMT</pubDate>
+      <description>A guide on showcasing human craftsmanship and intention alongside AI tools, and how badges can build trust.</description>
+    </item>
+    <item>
+      <title>Made by Human vs. Not By AI: A Positive Approach to Transparency</title>
+      <link>https://madebyhuman.iamjarl.com/blog/made-by-human-vs-not-by-ai</link>
+      <guid isPermaLink="true">https://madebyhuman.iamjarl.com/blog/made-by-human-vs-not-by-ai</guid>
+      <pubDate>Thu, 14 May 2026 00:00:00 GMT</pubDate>
+      <description>Why we choose to celebrate human creativity and curation instead of defining our work by what it is not.</description>
+    </item>
+    <item>
       <title>The Art of Curation: Keeping the Human Touch in the AI Era</title>
       <link>https://madebyhuman.iamjarl.com/blog/art-of-curation-human-touch</link>
       <guid isPermaLink="true">https://madebyhuman.iamjarl.com/blog/art-of-curation-human-touch</guid>
-      <pubDate>Fri, 22 May 2026 00:00:00 GMT</pubDate>
+      <pubDate>Sat, 09 May 2026 00:00:00 GMT</pubDate>
       <description>Why taste, intent, and critical curation are the most important creative skills in a world of abundant synthetic content.</description>
+    </item>
+    <item>
+      <title>Why Transparency About AI Use Matters</title>
+      <link>https://madebyhuman.iamjarl.com/blog/why-ai-transparency-matters</link>
+      <guid isPermaLink="true">https://madebyhuman.iamjarl.com/blog/why-ai-transparency-matters</guid>
+      <pubDate>Tue, 05 May 2026 00:00:00 GMT</pubDate>
+      <description>In an AI-saturated world, being open about how you create builds trust and honors the human element in work.</description>
+    </item>
+    <item>
+      <title>Welcome to the Made by Human blog</title>
+      <link>https://madebyhuman.iamjarl.com/blog/welcome-to-the-blog</link>
+      <guid isPermaLink="true">https://madebyhuman.iamjarl.com/blog/welcome-to-the-blog</guid>
+      <pubDate>Fri, 01 May 2026 00:00:00 GMT</pubDate>
+      <description>A place to share thinking, updates, and stories from the Made by Human movement.</description>
     </item>
   </channel>
 </rss>

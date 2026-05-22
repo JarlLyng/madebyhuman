@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { getBadgeUrl } from '@/app/config';
 
 export default function Footer() {
@@ -25,6 +26,13 @@ export default function Footer() {
           <p>This project is open source under the MIT License.</p>
           <p>Share, remix, and build upon it — and remember to credit the humans who made it.</p>
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 pt-4">
+            <Link
+              href="/blog"
+              className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+            >
+              Blog
+            </Link>
+            <span className="text-zinc-300 dark:text-zinc-700">&middot;</span>
             <a
               href="https://iamjarl.com/"
               target="_blank"
