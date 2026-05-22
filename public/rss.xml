@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Made by Human — Blog</title>
+    <link>https://madebyhuman.iamjarl.com/blog</link>
+    <atom:link href="https://madebyhuman.iamjarl.com/rss.xml" rel="self" type="application/rss+xml" />
+    <description>Essays and updates on human creativity in an AI-saturated world.</description>
+    <language>en</language>
+    <lastBuildDate>Fri, 22 May 2026 21:20:28 GMT</lastBuildDate>
+    <item>
+      <title>Why Transparency About AI Use Matters</title>
+      <link>https://madebyhuman.iamjarl.com/blog/why-ai-transparency-matters</link>
+      <guid isPermaLink="true">https://madebyhuman.iamjarl.com/blog/why-ai-transparency-matters</guid>
+      <pubDate>Fri, 22 May 2026 00:00:00 GMT</pubDate>
+      <description>In an AI-saturated world, being open about how you create builds trust and honors the human element in work.</description>
+    </item>
+    <item>
+      <title>Welcome to the Made by Human blog</title>
+      <link>https://madebyhuman.iamjarl.com/blog/welcome-to-the-blog</link>
+      <guid isPermaLink="true">https://madebyhuman.iamjarl.com/blog/welcome-to-the-blog</guid>
+      <pubDate>Fri, 22 May 2026 00:00:00 GMT</pubDate>
+      <description>A place to share thinking, updates, and stories from the Made by Human movement.</description>
+    </item>
+    <item>
+      <title>How to Signal Human Creativity in Your Projects</title>
+      <link>https://madebyhuman.iamjarl.com/blog/how-to-signal-human-creativity</link>
+      <guid isPermaLink="true">https://madebyhuman.iamjarl.com/blog/how-to-signal-human-creativity</guid>
+      <pubDate>Fri, 22 May 2026 00:00:00 GMT</pubDate>
+      <description>A guide on showcasing human craftsmanship and intention alongside AI tools, and how badges can build trust.</description>
+    </item>
+  </channel>
+</rss>
