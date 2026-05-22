@@ -40,6 +40,9 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: `${baseUrl}/`,
+    types: {
+      'application/rss+xml': `${baseUrl}/rss.xml`,
+    },
   },
   icons: {
     icon: [
@@ -221,8 +224,13 @@ export default function RootLayout({
           Skip to main content
         </a>
         <Script
-          src="https://umami-iamjarl.vercel.app/script.js"
-          data-website-id="a8ee647d-8843-48d5-8cbc-33224e12ad61"
+          src={process.env.NEXT_PUBLIC_UMAMI_SRC || 'https://umami-iamjarl.vercel.app/script.js'}
+          data-website-id={
+            process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID ||
+            'a8ee647d-8843-48d5-8cbc-33224e12ad61'
+          }
+          data-domains="madebyhuman.iamjarl.com"
+          data-do-not-track="true"
           strategy="afterInteractive"
         />
         <Nav />
