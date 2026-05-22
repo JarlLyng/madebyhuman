@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Made by Human — Blog</title>
+    <link>https://madebyhuman.iamjarl.com/blog</link>
+    <atom:link href="https://madebyhuman.iamjarl.com/rss.xml" rel="self" type="application/rss+xml" />
+    <description>Essays and updates on human creativity in an AI-saturated world.</description>
+    <language>en</language>
+    <lastBuildDate>Fri, 22 May 2026 21:02:29 GMT</lastBuildDate>
+    <item>
+      <title>Welcome to the Made by Human blog</title>
+      <link>https://madebyhuman.iamjarl.com/blog/welcome-to-the-blog</link>
+      <guid isPermaLink="true">https://madebyhuman.iamjarl.com/blog/welcome-to-the-blog</guid>
+      <pubDate>Fri, 22 May 2026 00:00:00 GMT</pubDate>
+      <description>A place to share thinking, updates, and stories from the Made by Human movement.</description>
+    </item>
+  </channel>
+</rss>

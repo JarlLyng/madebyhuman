@@ -7,6 +7,7 @@ const navLinks = [
   { href: '/about', label: 'About' },
   { href: '/badges', label: 'Badges' },
   { href: '/guide', label: 'Guide' },
+  { href: '/blog', label: 'Blog' },
 ];
 
 export default function Nav() {
