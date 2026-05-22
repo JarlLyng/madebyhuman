@@ -61,8 +61,16 @@ export default function BlogIndexPage() {
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
             Blog
           </h1>
-          <p className="text-xl text-zinc-600 dark:text-zinc-400 font-light mb-16">
+          <p className="text-xl text-zinc-600 dark:text-zinc-400 font-light mb-6">
             Essays and updates on human creativity in an AI-saturated world.
+          </p>
+          <p className="mb-16">
+            <a
+              href="/rss.xml"
+              className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 underline underline-offset-4 transition-colors"
+            >
+              Subscribe via RSS →
+            </a>
           </p>
 
           {posts.length === 0 ? (
