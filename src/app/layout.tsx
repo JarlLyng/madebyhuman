@@ -101,7 +101,7 @@ const jsonLd = {
       },
       founder: {
         '@type': 'Person',
-        name: 'Jarl Lyng',
+        name: 'Jarl',
         url: 'https://iamjarl.com',
       },
       sameAs: [
