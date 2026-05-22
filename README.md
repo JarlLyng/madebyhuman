@@ -12,7 +12,9 @@
 
 Free SVG badges for websites, GitHub READMEs, apps, and art projects. Open source under MIT.
 
-**[Browse badges](https://madebyhuman.iamjarl.com/badges)** | **[About the project](https://madebyhuman.iamjarl.com/about)** | **[Live site](https://madebyhuman.iamjarl.com)**
+**[Browse badges](https://madebyhuman.iamjarl.com/badges)** | **[About the project](https://madebyhuman.iamjarl.com/about)** | **[Read the blog](https://madebyhuman.iamjarl.com/blog)** | **[Live site](https://madebyhuman.iamjarl.com)**
+
+[![Made by Human — site screenshot](public/screenshot.png)](https://madebyhuman.iamjarl.com)
 
 ---
 
@@ -62,6 +64,22 @@ Or visit the [badge gallery](https://madebyhuman.iamjarl.com/badges) to download
 
 ---
 
+## Blog
+
+Essays and updates on human creativity in an AI-saturated world — read at **[madebyhuman.iamjarl.com/blog](https://madebyhuman.iamjarl.com/blog)** or subscribe via [RSS](https://madebyhuman.iamjarl.com/rss.xml).
+
+Recent posts:
+
+- [How to Add a 'Made by Human' Badge to Your Next.js or React Website](https://madebyhuman.iamjarl.com/blog/how-to-add-badge-to-nextjs-react)
+- [How to Signal Human Creativity in Your Projects](https://madebyhuman.iamjarl.com/blog/how-to-signal-human-creativity)
+- [Made by Human vs. Not By AI: A Positive Approach to Transparency](https://madebyhuman.iamjarl.com/blog/made-by-human-vs-not-by-ai)
+- [The Art of Curation: Keeping the Human Touch in the AI Era](https://madebyhuman.iamjarl.com/blog/art-of-curation-human-touch)
+- [Why Transparency About AI Use Matters](https://madebyhuman.iamjarl.com/blog/why-ai-transparency-matters)
+
+New posts are added by dropping an `.mdx` file with frontmatter into `src/content/blog/`. The sitemap and RSS feed regenerate automatically on build.
+
+---
+
 ## Development
 
 ```bash
@@ -78,6 +96,7 @@ Open [http://localhost:3000](http://localhost:3000).
 - **Tailwind CSS v4** — Utility-first styling
 - **TypeScript** — Type-safe development
 - **Framer Motion** — Animations
+- **MDX** — Blog posts via `next-mdx-remote` + `gray-matter` frontmatter
 
 ### Project structure
 
@@ -91,17 +110,26 @@ src/
     badges/
       page.tsx          # Badge gallery (client component)
       layout.tsx        # Badge page metadata
+    blog/
+      page.tsx          # Blog index
+      [slug]/page.tsx   # Individual blog post (MDX + JSON-LD)
   components/
     Nav.tsx             # Navigation bar
     Footer.tsx          # Footer with cross-links
+    HomeContent.tsx     # Interactive badge picker
+    LatestPostsTeaser.tsx # "From the blog" section on home
+  content/
+    blog/*.mdx          # Blog posts (frontmatter + MDX content)
   lib/
     badges.ts           # Badge data (single source of truth)
+    posts.ts            # MDX post reader
     umami.ts            # Analytics helper
 scripts/
-  generate-sitemap.mjs  # Sitemap generator
+  generate-sitemap.mjs  # Sitemap + RSS generator
 public/
   badges/               # SVG badge files
   sitemap.xml           # Generated sitemap
+  rss.xml               # Generated blog RSS feed
   robots.txt            # Crawl rules
   llms.txt              # AI engine indexing
 ```
