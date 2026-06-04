@@ -4,16 +4,16 @@ import { getBaseUrl } from '../config';
 const baseUrl = getBaseUrl();
 
 export const metadata: Metadata = {
-  title: 'Free Transparency Badges for GitHub & Websites - Made by Human',
+  title: 'Made by Human Badges — Free SVG, Copy-Paste in 30s',
   description:
-    'Download free SVG badges to mark human creativity and AI collaboration in your projects. Made by Human, Co-created with AI, Crafted by Human, and Human in the Loop — for GitHub READMEs, websites, and portfolios.',
+    'Four free SVG badges (light + dark) for GitHub READMEs and websites — Made by Human, Co-created with AI, Crafted by Human, Human in the Loop. MIT licensed.',
   alternates: {
     canonical: `${baseUrl}/badges`,
   },
   openGraph: {
-    title: 'Free Transparency Badges - Made by Human',
+    title: 'Made by Human Badges — Free, open-source SVG',
     description:
-      'Download free SVG badges to mark human creativity and AI collaboration. For GitHub READMEs, websites, and portfolios.',
+      'Free SVG badges that signal human creativity and intentional AI collaboration. Pick the badge that matches how you build.',
     url: `${baseUrl}/badges`,
   },
 };
