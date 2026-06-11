@@ -46,3 +46,21 @@ export function listPosts(): PostMeta[] {
     })
     .sort((a, b) => (a.date < b.date ? 1 : -1));
 }
+
+export function getRelatedPosts(slug: string, limit = 3): PostMeta[] {
+  const current = getPost(slug);
+  const currentTags = new Set(current.tags ?? []);
+  const others = listPosts().filter((p) => p.slug !== slug);
+
+  const scored = others.map((p) => ({
+    post: p,
+    shared: (p.tags ?? []).filter((t) => currentTags.has(t)).length,
+  }));
+
+  scored.sort((a, b) => {
+    if (b.shared !== a.shared) return b.shared - a.shared;
+    return a.post.date < b.post.date ? 1 : -1;
+  });
+
+  return scored.slice(0, limit).map((s) => s.post);
+}
