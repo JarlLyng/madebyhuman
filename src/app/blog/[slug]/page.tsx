@@ -2,7 +2,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
-import { getPost, listPostSlugs } from '@/lib/posts';
+import { getPost, getRelatedPosts, listPostSlugs } from '@/lib/posts';
 import { getBaseUrl } from '../../config';
 
 const baseUrl = getBaseUrl();
@@ -155,6 +155,62 @@ export default async function BlogPostPage({
           </div>
         </div>
       </article>
+
+      <RelatedPosts slug={post.slug} />
     </main>
+  );
+}
+
+function RelatedPosts({ slug }: { slug: string }) {
+  const related = getRelatedPosts(slug, 3);
+  if (related.length === 0) return null;
+
+  return (
+    <aside
+      aria-label="Related posts"
+      className="px-4 sm:px-6 lg:px-8 py-16 sm:py-20 bg-zinc-50 dark:bg-zinc-900 border-t border-zinc-200 dark:border-zinc-800"
+    >
+      <div className="max-w-6xl mx-auto">
+        <div className="flex items-end justify-between mb-10 flex-wrap gap-4">
+          <div>
+            <p className="text-sm uppercase tracking-wide text-zinc-500 dark:text-zinc-400 mb-2">
+              Keep reading
+            </p>
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
+              Related posts
+            </h2>
+          </div>
+          <Link
+            href="/blog"
+            className="text-sm font-medium text-zinc-900 dark:text-zinc-100 underline underline-offset-4 hover:text-zinc-600 dark:hover:text-zinc-400 transition-colors"
+          >
+            All posts →
+          </Link>
+        </div>
+
+        <ul className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {related.map((post) => (
+            <li key={post.slug}>
+              <article className="h-full">
+                <Link href={`/blog/${post.slug}`} className="group block h-full">
+                  <time
+                    dateTime={post.date}
+                    className="text-xs uppercase tracking-wide text-zinc-500 dark:text-zinc-400"
+                  >
+                    {formatDate(post.date)}
+                  </time>
+                  <h3 className="text-xl font-bold mt-2 mb-3 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">
+                    {post.title}
+                  </h3>
+                  <p className="text-base text-zinc-600 dark:text-zinc-400 line-clamp-3">
+                    {post.description}
+                  </p>
+                </Link>
+              </article>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </aside>
   );
 }
