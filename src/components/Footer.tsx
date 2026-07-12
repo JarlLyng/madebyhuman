@@ -97,6 +97,15 @@ export default function Footer() {
             </a>
             <span className="text-zinc-300 dark:text-zinc-700">&middot;</span>
             <a
+              href="https://walkful.iamjarl.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+            >
+              Walkful
+            </a>
+            <span className="text-zinc-300 dark:text-zinc-700">&middot;</span>
+            <a
               href="https://wodrounds.iamjarl.com/"
               target="_blank"
               rel="noopener noreferrer"
