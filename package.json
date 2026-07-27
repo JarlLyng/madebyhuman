@@ -9,12 +9,12 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "framer-motion": "^12.40.0",
+    "framer-motion": "^12.42.2",
     "gray-matter": "^4.0.3",
-    "next": "^16.2.9",
+    "next": "^16.2.12",
     "next-mdx-remote": "^6.0.0",
-    "react": "^19.2.7",
-    "react-dom": "^19.2.7"
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
