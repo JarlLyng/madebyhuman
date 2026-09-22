@@ -6,12 +6,12 @@ import { getBaseUrl } from '../config';
 const baseUrl = getBaseUrl();
 
 export const metadata: Metadata = {
-  title: 'Blog — Made by Human',
+  title: 'Blog | Made by Human',
   description:
     'Essays and updates on human creativity, AI collaboration, and the Made by Human movement.',
   alternates: { canonical: `${baseUrl}/blog` },
   openGraph: {
-    title: 'Blog — Made by Human',
+    title: 'Blog | Made by Human',
     description:
       'Essays and updates on human creativity, AI collaboration, and the Made by Human movement.',
     type: 'website',

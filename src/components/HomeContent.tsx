@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, useMotionValue, useSpring, useMotionTemplate } from 'framer-motion';
-import { getBadgeUrl, getFullBadgeUrl, getEmbedCode } from '@/app/config';
+import { getBadgeUrl, getEmbedCode } from '@/app/config';
 
 import { badges } from '@/lib/badges';
 import type { Badge } from '@/lib/badges';
@@ -239,7 +239,7 @@ export default function HomeContent() {
             transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
             className="text-xl sm:text-2xl lg:text-3xl text-zinc-600 dark:text-zinc-400 mb-6 max-w-3xl mx-auto font-light"
           >
-            Created with heart, intent, and sometimes AI — but always by a human.
+            Created with heart, intent, and sometimes AI, but always by a human.
           </motion.p>
           <motion.p
             initial={{ y: 12 }}
@@ -273,13 +273,13 @@ export default function HomeContent() {
               className="space-y-6 text-lg text-zinc-700 dark:text-zinc-300 pt-2"
             >
               <p>
-                <strong>Made by Human</strong> celebrates human creativity — not by rejecting AI, but by honoring the intention, judgement, and personal touch that humans bring to every creative project.
+                <strong>Made by Human</strong> celebrates human creativity, not by rejecting AI, but by honoring the intention, judgement, and personal touch that humans bring to every creative project.
               </p>
               <p>
                 True value emerges when humans <strong>choose</strong>, <strong>shape</strong>, and <strong>curate</strong> their tools. Whether working entirely by hand or in collaboration with AI, the creative vision and decisions remain fundamentally human.
               </p>
               <p>
-                Our badges represent this philosophy. They&apos;re free to use on websites, products, music, apps, and art projects — each one acknowledging a different nuance in how humans and machines work together.
+                Our badges represent this philosophy. They&apos;re free to use on websites, products, music, apps, and art projects, each one acknowledging a different nuance in how humans and machines work together.
               </p>
             </motion.div>
           </div>
@@ -300,7 +300,7 @@ export default function HomeContent() {
           </motion.h2>
           
           <p className="text-center text-zinc-600 dark:text-zinc-400 mb-8 max-w-2xl mx-auto">
-            All badges are free to use anywhere — on your website, in your projects, or wherever you want to show your human touch.
+            All badges are free to use anywhere: on your website, in your projects, or wherever you want to show your human touch.
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
@@ -535,7 +535,7 @@ export default function HomeContent() {
               className="space-y-6 text-lg text-zinc-700 dark:text-zinc-300 pt-2"
             >
             <p>
-              Everyone is welcome to contribute — bring your badges, ideas, text, design, or code.
+              Everyone is welcome to contribute. Bring your badges, ideas, text, design, or code.
             </p>
             <p>
               Our goal is to <strong>celebrate the human</strong> in every creative process, whether that process includes AI or not.

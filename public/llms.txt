@@ -1,14 +1,14 @@
 # Made by Human
 
-> Celebrating human creativity — not by rejecting AI, but by honoring the intention, judgement, and personal touch that humans bring to every creative project.
+> Celebrating human creativity, not by rejecting AI, but by honoring the intention, judgement, and personal touch that humans bring to every creative project.
 
 Made by Human is a free, open-source badge system for websites, GitHub READMEs, apps, and art projects. Each badge acknowledges a different nuance in how humans and AI work together.
 
 ## Available Badges (8 SVG variants)
-- Made by Human (white + black) — General badge celebrating human creativity
-- Co-created with AI (white + black) — For projects created in collaboration with AI tools
-- Crafted by Human (white + black) — For projects created entirely by human hands
-- Human in the Loop (white + black) — For projects where humans guide and curate the process
+- Made by Human (white + black): General badge celebrating human creativity
+- Co-created with AI (white + black): For projects created in collaboration with AI tools
+- Crafted by Human (white + black): For projects created entirely by human hands
+- Human in the Loop (white + black): For projects where humans guide and curate the process
 
 ## How to Use
 1. Choose your badge at https://madebyhuman.iamjarl.com/badges

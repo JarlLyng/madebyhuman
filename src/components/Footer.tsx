@@ -24,7 +24,7 @@ export default function Footer() {
         </div>
         <div className="text-sm text-zinc-600 dark:text-zinc-400 space-y-2">
           <p>This project is open source under the MIT License.</p>
-          <p>Share, remix, and build upon it — and remember to credit the humans who made it.</p>
+          <p>Share, remix, and build upon it, and remember to credit the humans who made it.</p>
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 pt-4">
             <Link
               href="/blog"
