@@ -21,7 +21,7 @@ const baseUrl = getBaseUrl();
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
-  title: "Made by Human — Free Badges for Human-Made Creative Work",
+  title: "Made by Human | Free Badges for Human-Made Creative Work",
   description: "The Made by Human movement: free badges and a manifesto for creators in an AI-saturated world. Add the badge to your project in 30 seconds.",
   keywords: ["human creativity", "AI collaboration", "badges", "open source", "creative work", "human in the loop", "crafted by human", "made by human"],
   authors: [{ name: "IAMJARL", url: "https://iamjarl.com" }],
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "Made by Human — Free Badges for Human-Made Creative Work",
+    title: "Made by Human | Free Badges for Human-Made Creative Work",
     description: "The Made by Human movement: free badges and a manifesto for creators in an AI-saturated world. Add the badge to your project in 30 seconds.",
     type: "website",
     url: `${baseUrl}/`,
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Made by Human — Free Badges for Human-Made Creative Work",
+    title: "Made by Human | Free Badges for Human-Made Creative Work",
     description: "The Made by Human movement: free badges and a manifesto for creators in an AI-saturated world. Add the badge to your project in 30 seconds.",
     images: [`/og-image.png`],
     creator: "@iamjarl",
@@ -164,7 +164,7 @@ const jsonLd = {
           name: 'Is Made by Human anti-AI?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'No. Made by Human celebrates human creativity regardless of whether AI was used. The badges signal transparency about your creative process — not a rejection of AI tools.',
+            text: 'No. Made by Human celebrates human creativity regardless of whether AI was used. The badges signal transparency about your creative process, not a rejection of AI tools.',
           },
         },
         {

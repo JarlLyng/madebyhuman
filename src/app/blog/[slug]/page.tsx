@@ -23,7 +23,7 @@ export async function generateMetadata({
     const post = getPost(slug);
     const url = `${baseUrl}/blog/${post.slug}`;
     return {
-      title: `${post.title} — Made by Human`,
+      title: `${post.title} | Made by Human`,
       description: post.description,
       alternates: { canonical: url },
       openGraph: {

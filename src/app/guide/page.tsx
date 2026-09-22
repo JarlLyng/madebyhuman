@@ -43,19 +43,19 @@ export default function GuidePage() {
               </p>
               <ul className="space-y-3">
                 <li>
-                  <strong>Made by Human</strong> — A general badge for any
+                  <strong>Made by Human:</strong> a general badge for any
                   project where a human made the creative decisions.
                 </li>
                 <li>
-                  <strong>Co-created with AI</strong> — For work where AI tools
+                  <strong>Co-created with AI:</strong> for work where AI tools
                   helped generate, refine, or translate content.
                 </li>
                 <li>
-                  <strong>Crafted by Human</strong> — For work made entirely by
+                  <strong>Crafted by Human:</strong> for work made entirely by
                   hand, without AI involvement.
                 </li>
                 <li>
-                  <strong>Human in the Loop</strong> — For AI-assisted workflows
+                  <strong>Human in the Loop:</strong> for AI-assisted workflows
                   with human oversight and editorial control.
                 </li>
               </ul>
@@ -99,14 +99,14 @@ export default function GuidePage() {
               </p>
               <ul className="space-y-2">
                 <li>
-                  <strong>Copy Markdown</strong> — for GitHub READMEs and other
+                  <strong>Copy Markdown:</strong> for GitHub READMEs and other
                   markdown files
                 </li>
                 <li>
-                  <strong>Copy HTML</strong> — for websites and web apps
+                  <strong>Copy HTML:</strong> for websites and web apps
                 </li>
                 <li>
-                  <strong>Copy Image URL</strong> — the raw SVG URL, useful for
+                  <strong>Copy Image URL:</strong> the raw SVG URL, useful for
                   custom setups
                 </li>
               </ul>
@@ -217,7 +217,7 @@ export default function GuidePage() {
                 <h3 className="text-xl font-semibold mb-2">No attribution required</h3>
                 <p>
                   The badges are MIT licensed. You don&apos;t have to credit
-                  anyone — though the embed codes include a link back to the
+                  anyone, though the embed codes include a link back to the
                   project, which helps others discover the badges.
                 </p>
               </div>

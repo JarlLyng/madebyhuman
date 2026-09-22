@@ -7,14 +7,14 @@ const baseUrl = getBaseUrl();
 export const metadata: Metadata = {
   title: 'About - Made by Human',
   description:
-    'The story behind Made by Human — a positive movement celebrating human creativity, intention, and the meaningful choices we make when we create.',
+    'The story behind Made by Human, a positive movement celebrating human creativity, intention, and the meaningful choices we make when we create.',
   alternates: {
     canonical: `${baseUrl}/about`,
   },
   openGraph: {
     title: 'About - Made by Human',
     description:
-      'The story behind Made by Human — a positive movement celebrating human creativity, intention, and the meaningful choices we make when we create.',
+      'The story behind Made by Human, a positive movement celebrating human creativity, intention, and the meaningful choices we make when we create.',
     url: `${baseUrl}/about`,
   },
 };
@@ -68,7 +68,7 @@ export default function AboutPage() {
             <div className="space-y-6 text-lg text-zinc-700 dark:text-zinc-300 pt-2">
               <p>
                 It started with a simple observation. Initiatives like &ldquo;Not By AI&rdquo;
-                label content as human-made — a kind of Fairtrade label for text and creativity.
+                label content as human-made. A kind of Fairtrade label for text and creativity.
                 The intention is genuine: transparency about how something was made.
               </p>
               <p>
@@ -78,7 +78,7 @@ export default function AboutPage() {
               </p>
               <p>
                 <strong>Made by Human</strong> is a friendly counterpoint. Not a protest.
-                More a reminder that there&apos;s still a human behind it all — even when AI is part
+                More a reminder that there&apos;s still a human behind it all, even when AI is part
                 of the process.
               </p>
               <p className="pt-2">
@@ -106,12 +106,12 @@ export default function AboutPage() {
             </h2>
             <div className="space-y-6 text-lg text-zinc-700 dark:text-zinc-300 pt-2">
               <p>
-                It&apos;s not about how something is made — it&apos;s about <em>why</em>.
+                It&apos;s not about how something is made. It&apos;s about <em>why</em>.
               </p>
               <p>
                 Music can feel more genuine when you know the story behind it. A small mistake,
                 a pause, an imperfection can make it feel more human. The same goes for design,
-                code, and communication. Authenticity doesn&apos;t live in the tool — it lives
+                code, and communication. Authenticity doesn&apos;t live in the tool. It lives
                 in the intention, and in the connection we create.
               </p>
               <p>
@@ -139,7 +139,7 @@ export default function AboutPage() {
             <div className="space-y-6 text-lg text-zinc-700 dark:text-zinc-300 pt-2">
               <p>
                 Our badges represent different nuances in how humans and machines work together.
-                They&apos;re free to use on websites, products, music, apps, and art projects — each
+                They&apos;re free to use on websites, products, music, apps, and art projects, each
                 one acknowledging a different relationship between human and tool.
               </p>
               <p>
@@ -172,7 +172,7 @@ export default function AboutPage() {
                 by AI. Maybe they should remind us <em>why</em> we create things in the first place.
               </p>
               <p>
-                Made by Human is open source. Everyone is welcome to contribute — bring your badges,
+                Made by Human is open source. Everyone is welcome to contribute. Bring your badges,
                 ideas, text, design, or code. Our goal is to celebrate the human in every creative
                 process, whether that process includes AI or not.
               </p>
