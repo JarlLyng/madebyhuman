@@ -32,12 +32,25 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
 
 # vercel
 .vercel
 
-# claude
+# agent and editor tooling stays local; AGENTS.md is the one tracked agent file
 .claude/
+CLAUDE.md
+CLAUDE.local.md
+.cursor/
+.cursorrules
+.windsurfrules
+.clinerules
+.aider*
+.continue/
+.codex/
+.mcp.json
+GEMINI.md
+.github/copilot-instructions.md
 
 # typescript
 *.tsbuildinfo
