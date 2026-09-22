@@ -226,24 +226,24 @@ export default function HomeContent() {
 
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ y: 12 }}
+            animate={{ y: 0 }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
             className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight mb-8 leading-tight"
           >
             Made by Human
           </motion.h1>
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ y: 12 }}
+            animate={{ y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
             className="text-xl sm:text-2xl lg:text-3xl text-zinc-600 dark:text-zinc-400 mb-6 max-w-3xl mx-auto font-light"
           >
             Created with heart, intent, and sometimes AI — but always by a human.
           </motion.p>
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ y: 12 }}
+            animate={{ y: 0 }}
             transition={{ duration: 0.6, delay: 0.4, ease: 'easeOut' }}
             className="text-lg sm:text-xl text-zinc-500 dark:text-zinc-500 max-w-2xl mx-auto"
           >

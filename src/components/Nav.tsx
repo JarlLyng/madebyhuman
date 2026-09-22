@@ -15,15 +15,15 @@ export default function Nav() {
 
   return (
     <nav aria-label="Main navigation" className="px-4 sm:px-6 lg:px-8 py-4">
-      <div className="max-w-6xl mx-auto flex items-center justify-between">
+      <div className="max-w-6xl mx-auto flex items-center justify-between gap-4">
         <Link
           href="/"
           aria-current={pathname === '/' ? 'page' : undefined}
-          className="font-bold text-lg text-zinc-900 dark:text-zinc-50 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors"
+          className="shrink-0 whitespace-nowrap font-bold text-lg text-zinc-900 dark:text-zinc-50 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors"
         >
           Made by Human
         </Link>
-        <div className="flex items-center gap-6 text-sm font-medium">
+        <div className="flex flex-wrap items-center justify-end gap-x-4 gap-y-1 sm:gap-x-6 text-sm font-medium">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
