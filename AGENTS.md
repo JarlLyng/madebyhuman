@@ -93,8 +93,8 @@ change. A stale AGENTS.md is worse than none: an assistant will build on what it
 - No verification of badge claims. The badges are self-disclosure, not certification.
 - No registry or directory of projects that use a badge.
 - No tracking of who embeds a badge. Badge SVGs are static files; nothing is logged per embed.
-- No custom or generated badges, and no localized badge variants (French and others have been
-  requested but do not exist yet).
+- No custom or generated badges, and no localized badge variants. A French translation was
+  requested (#126) and declined for now.
 - No backend, API or database. The site is a static export.
 
 ## Requirements
@@ -115,6 +115,7 @@ change. A stale AGENTS.md is worse than none: an assistant will build on what it
 
 - Next.js App Router with `output: 'export'`, React 19, Tailwind CSS v4, TypeScript, Framer
   Motion for animation.
-- Does **not** use `iamjarl-design` tokens today. Whether it should, or stays deliberately
-  independent as the portfolio's outlier, is open in #108. Record the decision here once made.
+- Does **not** use `iamjarl-design`, by decision (#108, 2026-10-03). Made by Human stays
+  visually independent as the portfolio's outlier: a manifesto and badge system, not a product
+  site. Do not add the package, its tokens or `--ij-*` custom properties.
 - Security fixes for transitive dependencies go in `overrides` in `package.json`.
