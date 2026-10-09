@@ -9,6 +9,8 @@ updates:
     labels:
       - "dependencies"
       - "automated"
+    cooldown:
+      default-days: 7
     commit-message:
       prefix: "chore"
       include: "scope"
@@ -34,6 +36,8 @@ updates:
       - "dependencies"
       - "automated"
       - "github-actions"
+    cooldown:
+      default-days: 7
     commit-message:
       prefix: "ci"
       include: "scope"
