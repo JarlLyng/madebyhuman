@@ -1,19 +1,45 @@
 import { writeFileSync, readFileSync, readdirSync } from 'fs';
 import { resolve, dirname, join } from 'path';
 import { fileURLToPath } from 'url';
+import { execFileSync } from 'child_process';
 import matter from 'gray-matter';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_ORIGIN || 'https://madebyhuman.iamjarl.com';
-const today = new Date().toISOString().split('T')[0];
+const repoRoot = resolve(__dirname, '..');
 
 const staticPages = [
-  { path: '/', changefreq: 'weekly', priority: '1.0' },
-  { path: '/about', changefreq: 'monthly', priority: '0.8' },
-  { path: '/badges', changefreq: 'weekly', priority: '0.9' },
-  { path: '/guide', changefreq: 'monthly', priority: '0.9' },
-  { path: '/blog', changefreq: 'weekly', priority: '0.8' },
+  {
+    path: '/',
+    changefreq: 'weekly',
+    priority: '1.0',
+    sources: ['src/app/page.tsx', 'src/components/HomeContent.tsx', 'src/components/LatestPostsTeaser.tsx', 'src/content/blog'],
+  },
+  { path: '/about', changefreq: 'monthly', priority: '0.8', sources: ['src/app/about/page.tsx'] },
+  {
+    path: '/badges',
+    changefreq: 'weekly',
+    priority: '0.9',
+    sources: ['src/app/badges/page.tsx', 'src/app/badges/layout.tsx', 'src/lib/badges.ts'],
+  },
+  { path: '/guide', changefreq: 'monthly', priority: '0.9', sources: ['src/app/guide/page.tsx'] },
+  { path: '/blog', changefreq: 'weekly', priority: '0.8', sources: ['src/app/blog/page.tsx', 'src/content/blog'] },
 ];
+
+function git(args) {
+  return execFileSync('git', args, { cwd: repoRoot, encoding: 'utf8' }).trim();
+}
+
+// lastmod must be true or absent: the last commit touching a page's sources, never the build date.
+// A shallow clone has no history to ask, so lastmod is left out rather than guessed.
+function lastCommitDate(sources) {
+  try {
+    if (git(['rev-parse', '--is-shallow-repository']) === 'true') return null;
+    return git(['log', '-1', '--format=%cs', '--', ...sources]) || null;
+  } catch {
+    return null;
+  }
+}
 
 const postsDir = resolve(__dirname, '../src/content/blog');
 const posts = readdirSync(postsDir)
@@ -39,7 +65,7 @@ const blogPages = posts.map((post) => ({
 }));
 
 const pages = [
-  ...staticPages.map((p) => ({ ...p, lastmod: today })),
+  ...staticPages.map(({ sources, ...p }) => ({ ...p, lastmod: lastCommitDate(sources) })),
   ...blogPages,
 ];
 
@@ -48,8 +74,8 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 ${pages
   .map(
     (page) => `  <url>
-    <loc>${SITE_URL}${page.path}</loc>
-    <lastmod>${page.lastmod}</lastmod>
+    <loc>${SITE_URL}${page.path}</loc>${page.lastmod ? `
+    <lastmod>${page.lastmod}</lastmod>` : ''}
     <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority}</priority>
   </url>`,
