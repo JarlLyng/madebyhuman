@@ -29,6 +29,7 @@
   },
   "overrides": {
     "postcss": "^8.5.23",
-    "@babel/core": "^7.29.6"
+    "@babel/core": "^7.29.6",
+    "postcss-selector-parser": "^7.1.6"
   }
 }
