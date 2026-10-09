@@ -41,5 +41,4 @@ updates:
     commit-message:
       prefix: "ci"
       include: "scope"
-    versioning-strategy: increase
 
