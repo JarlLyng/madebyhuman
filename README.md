@@ -1,47 +1,57 @@
-[![Made by Human](https://madebyhuman.iamjarl.com/badges/made-white.svg)](https://madebyhuman.iamjarl.com)
+<img src="public/icon.svg" alt="" width="80" height="80">
 
 # Made by Human
 
-[![License: MIT](https://img.shields.io/github/license/JarlLyng/madebyhuman)](LICENSE)
-[![Last commit](https://img.shields.io/github/last-commit/JarlLyng/madebyhuman)](https://github.com/JarlLyng/madebyhuman/commits/main)
-[![Deploy](https://img.shields.io/github/actions/workflow/status/JarlLyng/madebyhuman/deploy.yml?label=deploy)](https://github.com/JarlLyng/madebyhuman/actions/workflows/deploy.yml)
-[![Issues](https://img.shields.io/github/issues/JarlLyng/madebyhuman)](https://github.com/JarlLyng/madebyhuman/issues)
-[![Website](https://img.shields.io/website?url=https%3A%2F%2Fmadebyhuman.iamjarl.com)](https://madebyhuman.iamjarl.com)
+Celebrating human creativity, not by rejecting AI but by honoring the intention, judgement and personal touch people bring to creative work.
 
-**Celebrating human creativity — not by rejecting AI, but by honoring the intention, judgement, and personal touch that humans bring to every creative project.**
+<p>
+  Free SVG badges, open source under MIT · <a href="https://madebyhuman.iamjarl.com/badges">Browse badges</a> · <a href="https://madebyhuman.iamjarl.com/about">About the project</a> · <a href="https://madebyhuman.iamjarl.com/blog">Read the blog</a>
+</p>
 
-Free SVG badges for websites, GitHub READMEs, apps, and art projects. Open source under MIT.
+<p>
+  <a href="https://madebyhuman.iamjarl.com"><img src="public/screenshot.png" alt="The Made by Human home page, its headline on a dark grid above the Our Philosophy section." width="640"></a>
+</p>
 
-**[Browse badges](https://madebyhuman.iamjarl.com/badges)** | **[About the project](https://madebyhuman.iamjarl.com/about)** | **[Read the blog](https://madebyhuman.iamjarl.com/blog)** | **[Live site](https://madebyhuman.iamjarl.com)**
+The four badges say who made a piece of work and how. Crafted by Human is for work made without AI, Made by Human for any work where a person made the creative decisions, Co-created with AI for work that AI tools helped with, and Human in the Loop for AI-heavy work that a person guides and signs off. They are for developers, writers, designers and artists who want to be open about their process. Pick the one that is true for your work, copy its embed code from the [badge gallery](https://madebyhuman.iamjarl.com/badges), and paste it where the work lives. A badge is your own word on how something was made, not a certificate.
 
-[![Made by Human — site screenshot](public/screenshot.png)](https://madebyhuman.iamjarl.com)
+## For developers
 
----
+<p>
+  <a href="https://madebyhuman.iamjarl.com"><picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://madebyhuman.iamjarl.com/badges/co-created-white.svg">
+    <img src="https://madebyhuman.iamjarl.com/badges/co-created-black.svg" alt="Co-created with AI" width="120" height="40"></picture></a>
+  <a href="https://github.com/JarlLyng/madebyhuman/actions/workflows/deploy.yml"><img src="https://github.com/JarlLyng/madebyhuman/actions/workflows/deploy.yml/badge.svg" alt="Deploy"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT License"></a>
+</p>
 
-## Badges
+How to put a badge on your own project, how to run the site locally, how to contribute, and the license.
 
-Eight SVG badges — four designs in white and black variants:
+### Using the badges
 
-| Badge | Use when... |
-|-------|-------------|
-| ![Made by Human](public/badges/made-white.svg) | A general badge celebrating human creativity in all forms |
-| ![Co-created with AI](public/badges/co-created-white.svg) | Your project involves collaboration with AI tools |
-| ![Crafted by Human](public/badges/crafted-white.svg) | The work was created entirely by human hands |
-| ![Human in the Loop](public/badges/loop-white.svg) | Humans guide and curate an AI-assisted process |
+<p>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://madebyhuman.iamjarl.com/badges/made-white.svg">
+    <img src="https://madebyhuman.iamjarl.com/badges/made-black.svg" alt="Made by Human" width="150" height="50"></picture>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://madebyhuman.iamjarl.com/badges/co-created-white.svg">
+    <img src="https://madebyhuman.iamjarl.com/badges/co-created-black.svg" alt="Co-created with AI" width="150" height="50"></picture>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://madebyhuman.iamjarl.com/badges/crafted-white.svg">
+    <img src="https://madebyhuman.iamjarl.com/badges/crafted-black.svg" alt="Crafted by Human" width="150" height="50"></picture>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://madebyhuman.iamjarl.com/badges/loop-white.svg">
+    <img src="https://madebyhuman.iamjarl.com/badges/loop-black.svg" alt="Human in the Loop" width="150" height="50"></picture>
+</p>
 
-All badges also available in black variant. See the [full gallery](https://madebyhuman.iamjarl.com/badges).
+Every badge is a static SVG at `https://madebyhuman.iamjarl.com/badges/<name>-<white|black>.svg`, where the name is `made`, `co-created`, `crafted` or `loop`. The white badge is for dark backgrounds and the black one for light backgrounds. Each snippet links the badge back to the site.
 
----
-
-## Quick start
-
-### Markdown (GitHub README)
+In Markdown, for a README:
 
 ```markdown
 [![Made by Human](https://madebyhuman.iamjarl.com/badges/made-white.svg)](https://madebyhuman.iamjarl.com)
 ```
 
-### HTML
+In HTML, for a website:
 
 ```html
 <a href="https://madebyhuman.iamjarl.com">
@@ -49,105 +59,33 @@ All badges also available in black variant. See the [full gallery](https://madeb
 </a>
 ```
 
-### Badge URLs
+For a badge that follows the reader's light or dark theme on GitHub, the way the ones above do:
 
-All badges hosted at: `https://madebyhuman.iamjarl.com/badges/[name]-[variant].svg`
+```html
+<a href="https://madebyhuman.iamjarl.com"><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://madebyhuman.iamjarl.com/badges/made-white.svg">
+  <img src="https://madebyhuman.iamjarl.com/badges/made-black.svg" alt="Made by Human" width="120" height="40"></picture></a>
+```
 
-| Badge | White | Black |
-|-------|-------|-------|
-| Made by Human | `made-white.svg` | `made-black.svg` |
-| Co-created with AI | `co-created-white.svg` | `co-created-black.svg` |
-| Crafted by Human | `crafted-white.svg` | `crafted-black.svg` |
-| Human in the Loop | `loop-white.svg` | `loop-black.svg` |
+The [badge gallery](https://madebyhuman.iamjarl.com/badges) has a download and a copy button for every badge, and the [guide](https://madebyhuman.iamjarl.com/guide) walks through choosing one.
 
-Or visit the [badge gallery](https://madebyhuman.iamjarl.com/badges) to download and copy embed codes interactively.
+### Running the site locally
 
----
-
-## Blog
-
-Essays and updates on human creativity in an AI-saturated world — read at **[madebyhuman.iamjarl.com/blog](https://madebyhuman.iamjarl.com/blog)** or subscribe via [RSS](https://madebyhuman.iamjarl.com/rss.xml).
-
-Recent posts:
-
-- [How to Add a 'Made by Human' Badge to Your Next.js or React Website](https://madebyhuman.iamjarl.com/blog/how-to-add-badge-to-nextjs-react)
-- [How to Signal Human Creativity in Your Projects](https://madebyhuman.iamjarl.com/blog/how-to-signal-human-creativity)
-- [Made by Human vs. Not By AI: A Positive Approach to Transparency](https://madebyhuman.iamjarl.com/blog/made-by-human-vs-not-by-ai)
-- [The Art of Curation: Keeping the Human Touch in the AI Era](https://madebyhuman.iamjarl.com/blog/art-of-curation-human-touch)
-- [Why Transparency About AI Use Matters](https://madebyhuman.iamjarl.com/blog/why-ai-transparency-matters)
-
-New posts are added by dropping an `.mdx` file with frontmatter into `src/content/blog/`. The sitemap and RSS feed regenerate automatically on build.
-
----
-
-## Development
+You need Node.js 20.9 or newer.
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+The site runs at [http://localhost:3000](http://localhost:3000). `npm run build` writes the sitemap and the RSS feed, then exports the static site to `out/`, and `npm run lint` runs ESLint. The optional environment variables are in `.env.example`, and the code falls back to the production values without them.
 
-### Tech stack
+It is a static Next.js site (App Router, React 19, Tailwind CSS v4, TypeScript, Framer Motion). `src/lib/badges.ts` holds the names and descriptions of the badges, and `src/app/config.ts` builds the embed codes. Blog posts are MDX files with frontmatter in `src/content/blog/`. Every push to `main` deploys to GitHub Pages through [`deploy.yml`](.github/workflows/deploy.yml).
 
-- **Next.js 16** — React framework with App Router (static export)
-- **React 19** — UI library
-- **Tailwind CSS v4** — Utility-first styling
-- **TypeScript** — Type-safe development
-- **Framer Motion** — Animations
-- **MDX** — Blog posts via `next-mdx-remote` + `gray-matter` frontmatter
+### Contributing
 
-### Project structure
+Badges, ideas, text, design and code are all welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) first, and use [GitHub Issues](https://github.com/JarlLyng/madebyhuman/issues) for bugs and suggestions.
 
-```
-src/
-  app/
-    page.tsx            # Homepage
-    layout.tsx          # Root layout (metadata, JSON-LD, Nav, Footer)
-    config.ts           # URL configuration
-    about/page.tsx      # About page
-    badges/
-      page.tsx          # Badge gallery (client component)
-      layout.tsx        # Badge page metadata
-    blog/
-      page.tsx          # Blog index
-      [slug]/page.tsx   # Individual blog post (MDX + JSON-LD)
-  components/
-    Nav.tsx             # Navigation bar
-    Footer.tsx          # Footer with cross-links
-    HomeContent.tsx     # Interactive badge picker
-    LatestPostsTeaser.tsx # "From the blog" section on home
-  content/
-    blog/*.mdx          # Blog posts (frontmatter + MDX content)
-  lib/
-    badges.ts           # Badge data (single source of truth)
-    posts.ts            # MDX post reader
-    umami.ts            # Analytics helper
-scripts/
-  generate-sitemap.mjs  # Sitemap + RSS generator
-public/
-  badges/               # SVG badge files
-  sitemap.xml           # Generated sitemap
-  rss.xml               # Generated blog RSS feed
-  robots.txt            # Crawl rules
-  llms.txt              # AI engine indexing
-```
+### License
 
-### Deployment
-
-Automatically deployed to **GitHub Pages** via GitHub Actions on every push to `main`.
-
-Live site: **https://madebyhuman.iamjarl.com**
-
----
-
-## Contributing
-
-Everyone is welcome — badges, ideas, text, design, or code. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
----
-
-## License
-
-MIT License. See [LICENSE](LICENSE) for details.
+[MIT](LICENSE). Made by Human is made by Jarl at [IAMJARL](https://iamjarl.com).
