@@ -5,7 +5,7 @@
 Celebrating human creativity, not by rejecting AI but by honoring the intention, judgement and personal touch people bring to creative work.
 
 <p>
-  Free SVG badges, open source under MIT · <a href="https://madebyhuman.iamjarl.com/badges">Browse badges</a> · <a href="https://madebyhuman.iamjarl.com/about">About the project</a> · <a href="https://madebyhuman.iamjarl.com/blog">Read the blog</a>
+  Free SVG badges, open source under MIT&nbsp;· <a href="https://madebyhuman.iamjarl.com/badges">Browse badges</a>&nbsp;· <a href="https://madebyhuman.iamjarl.com/about">About the project</a>&nbsp;· <a href="https://madebyhuman.iamjarl.com/blog">Read the blog</a>
 </p>
 
 <p>
