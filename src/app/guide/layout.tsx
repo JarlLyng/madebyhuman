@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { getBaseUrl } from '../config';
+import { socialMetadata } from '@/lib/social';
 
 const baseUrl = getBaseUrl();
 
@@ -10,12 +11,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: `${baseUrl}/guide`,
   },
-  openGraph: {
+  ...socialMetadata({
     title: 'How to Add Badges to Your Projects - Made by Human',
     description:
       'Step-by-step guide for adding Made by Human badges to GitHub READMEs, websites, and projects.',
     url: `${baseUrl}/guide`,
-  },
+  }),
 };
 
 const breadcrumbJsonLd = {

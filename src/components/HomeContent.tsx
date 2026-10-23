@@ -245,7 +245,7 @@ export default function HomeContent() {
             initial={{ y: 12 }}
             animate={{ y: 0 }}
             transition={{ duration: 0.6, delay: 0.4, ease: 'easeOut' }}
-            className="text-lg sm:text-xl text-zinc-500 dark:text-zinc-500 max-w-2xl mx-auto"
+            className="text-lg sm:text-xl text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto"
           >
             A positive movement celebrating human creativity and the meaningful choices we make in our creative work.
           </motion.p>

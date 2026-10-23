@@ -2,22 +2,19 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { listPosts } from '@/lib/posts';
 import { getBaseUrl } from '../config';
+import { socialMetadata } from '@/lib/social';
 
 const baseUrl = getBaseUrl();
 
+const title = 'Blog | Made by Human';
+const description =
+  'Essays and updates on human creativity, AI collaboration, and the Made by Human movement.';
+
 export const metadata: Metadata = {
-  title: 'Blog | Made by Human',
-  description:
-    'Essays and updates on human creativity, AI collaboration, and the Made by Human movement.',
+  title,
+  description,
   alternates: { canonical: `${baseUrl}/blog` },
-  openGraph: {
-    title: 'Blog | Made by Human',
-    description:
-      'Essays and updates on human creativity, AI collaboration, and the Made by Human movement.',
-    type: 'website',
-    url: `${baseUrl}/blog`,
-    siteName: 'Made by Human',
-  },
+  ...socialMetadata({ title, description, url: `${baseUrl}/blog` }),
 };
 
 const breadcrumbJsonLd = {
