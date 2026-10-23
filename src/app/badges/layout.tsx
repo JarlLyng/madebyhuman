@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { getBaseUrl } from '../config';
+import { socialMetadata } from '@/lib/social';
 
 const baseUrl = getBaseUrl();
 
@@ -10,12 +11,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: `${baseUrl}/badges`,
   },
-  openGraph: {
+  ...socialMetadata({
     title: 'Made by Human Badges | Free, open-source SVG',
     description:
       'Free SVG badges that signal human creativity and intentional AI collaboration. Pick the badge that matches how you build.',
     url: `${baseUrl}/badges`,
-  },
+  }),
 };
 
 const breadcrumbJsonLd = {

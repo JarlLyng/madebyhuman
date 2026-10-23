@@ -1,22 +1,21 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getBaseUrl } from '../config';
+import { socialMetadata } from '@/lib/social';
 
 const baseUrl = getBaseUrl();
 
+const title = 'About - Made by Human';
+const description =
+  'The story behind Made by Human, a positive movement celebrating human creativity, intention, and the meaningful choices we make when we create.';
+
 export const metadata: Metadata = {
-  title: 'About - Made by Human',
-  description:
-    'The story behind Made by Human, a positive movement celebrating human creativity, intention, and the meaningful choices we make when we create.',
+  title,
+  description,
   alternates: {
     canonical: `${baseUrl}/about`,
   },
-  openGraph: {
-    title: 'About - Made by Human',
-    description:
-      'The story behind Made by Human, a positive movement celebrating human creativity, intention, and the meaningful choices we make when we create.',
-    url: `${baseUrl}/about`,
-  },
+  ...socialMetadata({ title, description, url: `${baseUrl}/about` }),
 };
 
 const breadcrumbJsonLd = {

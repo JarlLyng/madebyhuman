@@ -57,9 +57,17 @@ const posts = readdirSync(postsDir)
   })
   .sort((a, b) => (a.date < b.date ? 1 : -1));
 
+// A post edited after it went out has a lastmod later than its publish date, so ask git for the
+// last edit and keep the publish date only if it is later (a post committed ahead of its date).
+function postLastmod(post) {
+  const edited = lastCommitDate([`src/content/blog/${post.slug}.mdx`]);
+  if (!edited) return null;
+  return edited > post.date ? edited : post.date;
+}
+
 const blogPages = posts.map((post) => ({
   path: `/blog/${post.slug}`,
-  lastmod: post.date,
+  lastmod: postLastmod(post),
   changefreq: 'yearly',
   priority: '0.7',
 }));
@@ -104,7 +112,7 @@ const rssItems = posts
 const rss = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Made by Human — Blog</title>
+    <title>Blog | Made by Human</title>
     <link>${SITE_URL}/blog</link>
     <atom:link href="${SITE_URL}/rss.xml" rel="self" type="application/rss+xml" />
     <description>Essays and updates on human creativity in an AI-saturated world.</description>

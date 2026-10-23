@@ -5,6 +5,7 @@ import Script from "next/script";
 import { getBaseUrl } from "./config";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { socialMetadata } from "@/lib/social";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,10 +20,13 @@ const geistMono = Geist_Mono({
 // Get configuration values for metadata (server-side)
 const baseUrl = getBaseUrl();
 
+const title = "Made by Human | Free Badges for Human-Made Creative Work";
+const description = "The Made by Human movement: free badges and a manifesto for creators in an AI-saturated world. Add the badge to your project in 30 seconds.";
+
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
-  title: "Made by Human | Free Badges for Human-Made Creative Work",
-  description: "The Made by Human movement: free badges and a manifesto for creators in an AI-saturated world. Add the badge to your project in 30 seconds.",
+  title,
+  description,
   keywords: ["human creativity", "AI collaboration", "badges", "open source", "creative work", "human in the loop", "crafted by human", "made by human"],
   authors: [{ name: "IAMJARL", url: "https://iamjarl.com" }],
   creator: "IAMJARL",
@@ -55,29 +59,7 @@ export const metadata: Metadata = {
       { url: `/apple-touch-icon.png`, sizes: '180x180', type: 'image/png' },
     ],
   },
-  openGraph: {
-    title: "Made by Human | Free Badges for Human-Made Creative Work",
-    description: "The Made by Human movement: free badges and a manifesto for creators in an AI-saturated world. Add the badge to your project in 30 seconds.",
-    type: "website",
-    url: `${baseUrl}/`,
-    siteName: "Made by Human",
-    locale: "en_US",
-    images: [
-      {
-        url: `/og-image.png`,
-        width: 1200,
-        height: 630,
-        alt: "Made by Human - A positive movement celebrating human creativity",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Made by Human | Free Badges for Human-Made Creative Work",
-    description: "The Made by Human movement: free badges and a manifesto for creators in an AI-saturated world. Add the badge to your project in 30 seconds.",
-    images: [`/og-image.png`],
-    creator: "@iamjarl",
-  },
+  ...socialMetadata({ title, description, url: `${baseUrl}/` }),
 };
 
 const jsonLd = {
