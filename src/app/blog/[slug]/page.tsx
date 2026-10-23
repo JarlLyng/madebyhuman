@@ -4,8 +4,13 @@ import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { getPost, getRelatedPosts, listPostSlugs } from '@/lib/posts';
 import { getBaseUrl } from '../../config';
+import { socialMetadata } from '@/lib/social';
 
 const baseUrl = getBaseUrl();
+
+// Google shows about 60 characters of a title, so the site name goes on only where it fits.
+const TITLE_SUFFIX = ' | Made by Human';
+const TITLE_LIMIT = 60;
 
 type Params = { slug: string };
 
@@ -22,20 +27,20 @@ export async function generateMetadata({
   try {
     const post = getPost(slug);
     const url = `${baseUrl}/blog/${post.slug}`;
+    const withSuffix = `${post.title}${TITLE_SUFFIX}`;
     return {
-      title: `${post.title} | Made by Human`,
+      title: withSuffix.length <= TITLE_LIMIT ? withSuffix : post.title,
       description: post.description,
       alternates: { canonical: url },
-      openGraph: {
+      ...socialMetadata({
         title: post.title,
         description: post.description,
         type: 'article',
         url,
-        siteName: 'Made by Human',
         publishedTime: post.date,
         authors: post.author ? [post.author] : undefined,
         tags: post.tags,
-      },
+      }),
     };
   } catch {
     return {};

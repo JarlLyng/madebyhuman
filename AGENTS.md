@@ -108,7 +108,12 @@ change. A stale AGENTS.md is worse than none: an assistant will build on what it
   blog index and posts (`/blog`, `/blog/<slug>`).
 - **Blog:** MDX files in `src/content/blog/` with frontmatter (title, description, date,
   author, tags). Posts get JSON-LD and a related-posts section. Sitemap and RSS feed
-  (`/rss.xml`) are generated on build.
+  (`/rss.xml`) are generated on build. Every sitemap `<lastmod>` is the last git commit that
+  touched the page's sources, so CI checks out full history; without it, lastmod is left out.
+- **Social card:** every page shares `public/og-image.png` (1200 by 630) as its `og:image` and
+  `twitter:image`. Pages build `openGraph` and `twitter` through `socialMetadata()` in
+  `src/lib/social.ts`. Next.js replaces those objects instead of merging them, so a page that
+  writes its own drops the card.
 - **Analytics:** Umami, loaded in `src/app/layout.tsx`. It honors Do Not Track and only counts
   the production domain. Custom events: `copy_embed`, `download_badge`, `badge_modal_open`,
   `cta_github_repo_click`.
