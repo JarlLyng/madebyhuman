@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useSyncExternalStore } from 'react';
 import Image from 'next/image';
 import { motion, useMotionValue, useSpring, useMotionTemplate } from 'framer-motion';
 import { getBadgeUrl, getEmbedCode } from '@/app/config';
@@ -9,20 +9,21 @@ import { badges } from '@/lib/badges';
 import type { Badge } from '@/lib/badges';
 import { trackEvent } from '@/lib/umami';
 
+// Touch support does not change while the page is open, so there is nothing to subscribe to.
+// The server snapshot is false, which matches the prerendered HTML until hydration.
+const subscribeToTouchSupport = () => () => {};
+const getTouchSupport = () => 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+const getServerTouchSupport = () => false;
+
 export default function HomeContent() {
   const [selectedBadge, setSelectedBadge] = useState<Badge | null>(null);
   const [selectedVariant, setSelectedVariant] = useState<'white' | 'black'>('white');
   const [copied, setCopied] = useState<string | null>(null);
-  const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const isTouchDevice = useSyncExternalStore(subscribeToTouchSupport, getTouchSupport, getServerTouchSupport);
 
   // Smooth spring animation for mouse position
   const mouseX = useSpring(useMotionValue(0), { stiffness: 50, damping: 20 });
   const mouseY = useSpring(useMotionValue(0), { stiffness: 50, damping: 20 });
-
-  // Detect touch device
-  useEffect(() => {
-    setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
-  }, []);
 
   // Mouse tracking for interactive pattern (skip on touch devices)
   useEffect(() => {
