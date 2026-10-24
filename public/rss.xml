@@ -6,9 +6,9 @@
     <atom:link href="https://madebyhuman.iamjarl.com/rss.xml" rel="self" type="application/rss+xml" />
     <description>Essays and updates on human creativity in an AI-saturated world.</description>
     <language>en</language>
-    <lastBuildDate>Fri, 23 Oct 2026 20:22:17 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 24 Oct 2026 00:00:03 GMT</lastBuildDate>
     <item>
-      <title>How to Add a 'Made by Human' Badge to Your Next.js or React Website</title>
+      <title>How to Add a Made by Human Badge in Next.js or React</title>
       <link>https://madebyhuman.iamjarl.com/blog/how-to-add-badge-to-nextjs-react</link>
       <guid isPermaLink="true">https://madebyhuman.iamjarl.com/blog/how-to-add-badge-to-nextjs-react</guid>
       <pubDate>Fri, 22 May 2026 00:00:00 GMT</pubDate>
@@ -22,7 +22,7 @@
       <description>A guide on showcasing human craftsmanship and intention alongside AI tools, and how badges can build trust.</description>
     </item>
     <item>
-      <title>Made by Human vs. Not By AI: A Positive Approach to Transparency</title>
+      <title>Made by Human vs. Not By AI, a Positive Approach</title>
       <link>https://madebyhuman.iamjarl.com/blog/made-by-human-vs-not-by-ai</link>
       <guid isPermaLink="true">https://madebyhuman.iamjarl.com/blog/made-by-human-vs-not-by-ai</guid>
       <pubDate>Thu, 14 May 2026 00:00:00 GMT</pubDate>
