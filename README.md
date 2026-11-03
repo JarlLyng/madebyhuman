@@ -71,7 +71,7 @@ The [badge gallery](https://madebyhuman.iamjarl.com/badges) has a download and a
 
 ### Running the site locally
 
-You need Node.js 20.9 or newer.
+You need Node.js 20.19 or newer.
 
 ```bash
 npm install

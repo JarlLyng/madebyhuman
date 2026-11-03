@@ -35,7 +35,7 @@ New badge concepts are welcome. Place SVG files in `public/badges/` with both wh
 Bug fixes, accessibility improvements, performance optimizations, and new features are all appreciated. Check the [open issues](https://github.com/JarlLyng/madebyhuman/issues) for ideas.
 
 ### Content
-Improvements to copy, translations, or documentation. The about page is at `src/app/about/page.tsx`.
+Improvements to copy or documentation. The site is English only, so translations are not part of it for now (see #126). The about page is at `src/app/about/page.tsx`.
 
 ## Code style
 
