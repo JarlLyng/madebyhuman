@@ -131,7 +131,7 @@ change. A stale AGENTS.md is worse than none: an assistant will build on what it
 
 ## Requirements
 
-- Node.js 20.9 or newer (Next.js 16 requirement; CI uses Node 20).
+- Node.js 20.19 or newer. ESLint 10 needs 20.19 (Next.js 16 alone would accept 20.9), and `package.json` `engines` says so. CI uses Node 20.
 
 ## Build & run
 

@@ -7,25 +7,36 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-11-03
+
 ### Added
 
-- **Blog section** at `/blog` and `/blog/[slug]` powered by MDX files in `src/content/blog/`. Posts use frontmatter (title, description, date, author, tags) parsed via `gray-matter` and rendered server-side with `next-mdx-remote/rsc`. Tailwind `@tailwindcss/typography` plugin styles post bodies.
-- **RSS feed** at `/rss.xml`, regenerated on every build alongside the sitemap.
-- **JSON-LD on blog pages**: `BreadcrumbList` on `/blog` and both `BreadcrumbList` + `BlogPosting` on individual posts for rich search results.
-- **"From the blog" teaser** section on the home page surfacing the 3 latest posts.
-- **Blog link** in the main navigation and the footer link row.
-- Six initial blog posts: welcome, transparency, curation, made-by-human-vs-not-by-ai, signaling, and a Next.js/React how-to.
+- **Blog** at `/blog` and `/blog/<slug>`, written as MDX files with frontmatter in `src/content/blog/`. Six posts, JSON-LD (`BreadcrumbList`, `BlogPosting`), a related-posts section on every post (#91) and a "From the blog" section on the home page. (#79, #82, #83)
+- **RSS feed** at `/rss.xml`, generated on every build alongside the sitemap, and advertised in the page head. (#79, #85)
+- **Social card on every page.** All page metadata goes through `socialMetadata()` in `src/lib/social.ts`, so each page carries `og:image` and its own Twitter card text. (#156)
+- **Footer cross-links** to Anvil Workout, WODrounds and Walkful alongside the other IAMJARL sites. (#100, #101)
+- **`AGENTS.md`** for developers and coding agents: the project, its boundaries, what exists and what does not. (#133, #139, #148)
 
 ### Changed
 
-- `scripts/generate-sitemap.mjs` now reads blog frontmatter and emits both `sitemap.xml` and `rss.xml`. Sitemap includes per-post `lastmod` dates.
-- Home page (`src/app/page.tsx`) is now a thin server shell composing the interactive badge picker (`HomeContent`) and the server-rendered `LatestPostsTeaser`.
+- **Mobile first screen.** The wordmark stays on one line at phone widths, and the hero copy renders visible instead of waiting on an animation. (#132)
+- **Sitemap dates are true.** Each page's `lastmod` is the last git commit that touched its sources, posts included, and is left out when no git history is available. (#147, #156)
+- **Copy follows the house voice.** Em-dashes are gone from the site and the blog, and page titles use ` | ` as the separator. The two longest post titles were shortened to fit search results. (#134, #156, #161)
+- **Analytics** honor Do Not Track and only count the production domain. (#85)
+- **README** rewritten around a new first screen and a fresh screenshot. (#153, #154)
+- `/badges` metadata rewritten for search results, and the home subtitle meets WCAG AA contrast in dark mode. (#89, #156)
+- Node.js 20.19 or newer is required (ESLint 10), recorded in `engines`.
+
+### Fixed
+
+- Hydration mismatch on the home page: embed-code examples now always use the canonical site origin. (#134)
+- `npm run lint` works again with TypeScript pinned to 6.0, since typescript-eslint does not yet support TypeScript 7. (#157)
+- Dependabot configuration is valid again. (#149)
 
 ### Security
 
-- Bumped `next` 16.2.4 → 16.2.6 — addresses 13 advisories including high-severity middleware/proxy bypasses, SSRF via WebSocket upgrades, DoS with Server Components, and several XSS/cache-poisoning issues.
-- Added `postcss` override pinning to `^8.5.10` to patch the XSS-via-unescaped-`</style>` advisory affecting transitive copies under `next` and `@tailwindcss/postcss`.
-- Bumped `framer-motion`, `react`, `react-dom`, and several development dependencies to their latest patch versions.
+- `next` is on 16.4 and receives patch updates through Dependabot, which waits seven days before proposing a new version. (#148, #160)
+- Transitive fixes are pinned in `overrides` in `package.json`: `postcss`, `@babel/core` and `postcss-selector-parser`. (#77, #129, #149)
 
 ## [1.0.0] - 2026-04-29
 
@@ -55,5 +66,6 @@ First public release.
 - CodeQL code scanning, secret scanning, and push protection
 - Issue templates (bug report, feature request, badge idea), PR template, `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, `SECURITY.md`
 
-[Unreleased]: https://github.com/JarlLyng/madebyhuman/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/JarlLyng/madebyhuman/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/JarlLyng/madebyhuman/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/JarlLyng/madebyhuman/releases/tag/v1.0.0

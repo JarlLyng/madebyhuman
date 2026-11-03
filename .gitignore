@@ -52,6 +52,10 @@ CLAUDE.local.md
 GEMINI.md
 .github/copilot-instructions.md
 
+# generated on build by scripts/generate-sitemap.mjs
+/public/sitemap.xml
+/public/rss.xml
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
